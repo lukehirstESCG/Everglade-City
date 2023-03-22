@@ -1,71 +1,62 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    [SerializeField] AudioMixer mixer;
     public static AudioManager instance;
-    public AudioMixerGroup mixergroup;
 
-    public const string MUSIC_KEY = "MusicVolume";
-    public const string SFX_KEY = "SFXVolume";
+    public AudioMixerGroup musicMixerGroup;
+    public AudioMixerGroup sfxMixerGroup;
+
+    void Start()
+    {
+        Play("TEST");
+    }
 
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-        LoadVolume();
+        DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
+            s.source.playOnAwake = s.playOnAwake;
             s.source.loop = s.loop;
-            if (s.mixergroup == null)
+
+            // Set the appropriate mixer group for the sound
+            if (s.isMusic)
             {
-                s.source.outputAudioMixerGroup = mixergroup;
+                s.source.outputAudioMixerGroup = musicMixerGroup;
             }
             else
             {
-                s.source.outputAudioMixerGroup = s.mixergroup;
+                s.source.outputAudioMixerGroup = sfxMixerGroup;
             }
         }
-        
     }
-    void Start()
-    {
-        Play("TEST");
-    }
-    public void Play (string name)
+
+    public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        if (s == null)
         {
-            Debug.LogWarning("Sound : " + name + " was not found! Please try again!");
+            Debug.LogWarning("Sound: " + name + " was not found!");
             return;
         }
-        s.source.volume = s.volume;
-        s.source.pitch = s.pitch;
         s.source.Play();
-    }
-    void LoadVolume() // Volume Saved in VolumeSettings.cs
-    {
-        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
-        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 1f);
-
-        mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10 (musicVolume) * 20);
-        mixer.SetFloat(VolumeSettings.MIXER_SFX, Mathf.Log10(sfxVolume) * 20);
     }
     public void MuteHandler(bool mute)
     {
