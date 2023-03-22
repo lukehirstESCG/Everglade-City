@@ -69,13 +69,10 @@ public class AudioManager : MonoBehaviour
     }
     public void MuteHandler(bool mute)
     {
-        if(mute)
+        float volume = mute ? 0f : 1f;
+        foreach (Sound s in sounds)
         {
-            AudioListener.volume = 0;
-        }
-        else
-        {
-            AudioListener.volume = 1;
+            s.source.volume = s.volume * volume;
         }
     }
 }
