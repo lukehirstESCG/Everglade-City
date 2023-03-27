@@ -11,13 +11,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public float turnsmoothTime = 0.1f;
     float turnsmoothVelocity;
 
-    private void Start()
+    void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
