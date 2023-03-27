@@ -17,7 +17,7 @@ public class ThirdPersonMovement : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -33,7 +33,7 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 MoveDir = Quaternion.Euler(0f, TargetAngle, 0f) * Vector3.forward;
             controller.Move(MoveDir.normalized * speed * Time.deltaTime);
         }
-        else
+        else if (direction.magnitude <= 0.1f)
         {
             anim.SetBool("isWalking", false);
         }
