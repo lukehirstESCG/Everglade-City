@@ -4,69 +4,63 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    public float speed;
-    [SerializeField]
-    public float rotationSpeed;
+    public CharacterController controller;
+    public Animator anim;
+    public Transform cam;
+    public float speed = 6f;
+    private float runSpeed = 12f;
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
 
-    private float runSpeed;
+    //Animation states
+    const string PLAYER_IDLE = "Player_idle";
+    const string PLAYER_WALK = "Player_walk";
+    const string PLAYER_RUN = "Player_run";
 
-    [SerializeField]
-    private Transform cameraTransform;
-
-    private Animator anim;
-    private CharacterController characterController;
-
-    void Start()
+    void Start
     {
         anim = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
-        
+        controller = GetComponent<CharacterController>();
     }
-    // Update is called once per frame
+
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-        float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
-        movementDirection = Quaternion.AngleAxis(cameraTransform.eulerAngles.y, Vector3.up) * movementDirection;
-        movementDirection.Normalize();
-
-        characterController.SimpleMove(movementDirection * magnitude);
-
-        if (movementDirection != Vector3.zero)
+        if (direction.magnitude >= 0.01f)
         {
-            anim.SetBool("isWalking", true);
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        ChangeAnimationState(PLAYER_WALK);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
-        if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.RightShift)))
-        {
-            runSpeed = speed * 2;
-            anim.SetBool("isRunning", true);
-            Debug.Log("Target is running at: " + runSpeed);
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-        }
-    
+        else if (direction.magnitude <= 0.01f)
+    {
+        ChangeAnimationState(PLAYER_IDLE);
     }
-        private void OnApplicationFocus(bool focus)
-        {
-            if (focus)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-        }
+
+    if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.RightShift)))
+    {
+        runSpeed = speed * 2;
+        ChangeAnimationState(PLAYER_RUN);
+        Debug.Log("Target is running at: " + runSpeed);
     }
+    else
+    {
+        ChangeAnimationState(PLAYER_WALK);
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
+
+        anim.Play(newState);
+
+        currentState = newState;
+    }
+    }
+}
