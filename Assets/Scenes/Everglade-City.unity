@@ -3003,6 +3003,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: reyAirlines_HQ
       objectReference: {fileID: 0}
+    - target: {fileID: 1290268953411352940, guid: f8bfa45e1765ced4882202c9e3d29a1c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 46.57268
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290268953411352940, guid: f8bfa45e1765ced4882202c9e3d29a1c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 115.8256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290268953411352940, guid: f8bfa45e1765ced4882202c9e3d29a1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -102.6158
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bfa45e1765ced4882202c9e3d29a1c, type: 3}
@@ -6790,6 +6802,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7dc3b2e84a8af3d41adf2eeb2fa8071a, type: 3}
       propertyPath: m_Name
       value: 11_runcorn_street
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290268953411352940, guid: 7dc3b2e84a8af3d41adf2eeb2fa8071a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 82.00095
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
