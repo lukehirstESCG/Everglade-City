@@ -47,6 +47,8 @@ public class TimeController : MonoBehaviour
     private TimeSpan sunriseTime;
 
     private TimeSpan sunsetTime;
+
+    public GameObject Lighting;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +91,7 @@ public class TimeController : MonoBehaviour
             sunLightRotation = Mathf.Lerp(0, 180, (float)percentage);
 
             moonLightRotation = Mathf.Lerp(-180, 0, (float)percentage);
+            Lighting.SetActive(false);
         }
         else
         {
@@ -101,6 +104,7 @@ public class TimeController : MonoBehaviour
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
 
             moonLightRotation = Mathf.Lerp(-360, -180, (float)percentage);
+            Lighting.SetActive(true);
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
