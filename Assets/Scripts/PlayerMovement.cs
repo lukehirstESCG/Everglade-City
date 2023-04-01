@@ -11,14 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private float runSpeed = 12f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
-    private string currentState;
-    Rigidbody Player;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        Player = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
