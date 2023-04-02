@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,11 +11,6 @@ public class AudioManager : MonoBehaviour
 
     public AudioMixerGroup musicMixerGroup;
     public AudioMixerGroup sfxMixerGroup;
-
-    void Start()
-    {
-        Play("TEST");
-    }
 
     void Awake()
     {
@@ -37,11 +33,11 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
 
             // Set the appropriate mixer group for the sound
-            if (s.isMusic)
+            if (s.isMusic && musicMixerGroup != null)
             {
                 s.source.outputAudioMixerGroup = musicMixerGroup;
             }
-            else
+            else if (s.isSFX && sfxMixerGroup != null)
             {
                 s.source.outputAudioMixerGroup = sfxMixerGroup;
             }
@@ -54,10 +50,28 @@ public class AudioManager : MonoBehaviour
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " was not found!");
+            Debug.LogWarning("Playing");
             return;
         }
-        s.source.Play();
+        if (!s.source.isPlaying)
+        {
+            s.source.Play();
+        }
     }
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            return;
+        }
+        if (s.source.isPlaying)
+        {
+            s.source.Stop();
+        }
+
+    }
+
     public void MuteHandler(bool mute)
     {
         float volume = mute ? 0f : 1f;
