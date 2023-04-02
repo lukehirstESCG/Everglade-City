@@ -50,7 +50,6 @@ public class AudioManager : MonoBehaviour
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " was not found!");
-            Debug.LogWarning("Playing");
             return;
         }
         if (!s.source.isPlaying)

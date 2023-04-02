@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
         if (direction.magnitude >= 0.01f)
-            {
+        {
             FindObjectOfType<AudioManager>().Play("Walking");
             anim.SetBool("isWalking", true);
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -43,12 +43,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.RightShift)))
         {
+            FindObjectOfType<AudioManager>().Play("Running");
+            FindObjectOfType<AudioManager>().Stop("Walking");
             runSpeed = speed * 2;
             anim.SetBool("isRunning", true);
             Debug.Log("Target is running at: " + runSpeed);
         }
         else
         {
+            FindObjectOfType<AudioManager>().Stop("Running");
+            FindObjectOfType<AudioManager>().Play("Walking");
             anim.SetBool("isRunning", false);
         }
     }
