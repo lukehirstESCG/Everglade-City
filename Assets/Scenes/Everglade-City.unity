@@ -4845,7 +4845,7 @@ PrefabInstance:
       objectReference: {fileID: 8155042976739875156, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
     - target: {fileID: 3994610457167513144, guid: c035b6a3b78f91a47a829434c365df67, type: 3}
       propertyPath: sounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3994610457167513144, guid: c035b6a3b78f91a47a829434c365df67, type: 3}
       propertyPath: sounds.Array.data[0].clip
@@ -4862,14 +4862,14 @@ PrefabInstance:
     - target: {fileID: 3994610457167513144, guid: c035b6a3b78f91a47a829434c365df67, type: 3}
       propertyPath: sounds.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 2f36429f134bfc844bd8f1c778930f96, type: 3}
+      objectReference: {fileID: 8300000, guid: c1709f3d0468bdc4abdb3a33c5fa18aa, type: 3}
     - target: {fileID: 3994610457167513144, guid: c035b6a3b78f91a47a829434c365df67, type: 3}
       propertyPath: sounds.Array.data[1].loop
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994610457167513144, guid: c035b6a3b78f91a47a829434c365df67, type: 3}
       propertyPath: sounds.Array.data[1].name
-      value: Walking
+      value: Running
       objectReference: {fileID: 0}
     - target: {fileID: 3994610457167513144, guid: c035b6a3b78f91a47a829434c365df67, type: 3}
       propertyPath: sounds.Array.data[0].isSFX
