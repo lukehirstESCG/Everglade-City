@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -25,19 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-
-        // Performs a raycast hit.
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, controller.height / 2 + 0.1f, Ground))
-        {
-            // Snaps to the slope
-            Vector3 slopeNormal = hit.normal;
-            direction = Quaternion.FromToRotation(Vector3.up, slopeNormal) * direction;
-        }
 
         // Is the player moving? If yes, then do these bits.
         if (direction.magnitude >= 0.01f)
@@ -50,8 +41,9 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
         // Is the player NOT moving? If yes, then do this.
         else if (direction.magnitude <= 0f)
         {
