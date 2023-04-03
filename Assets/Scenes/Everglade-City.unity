@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 72322435}
   - component: {fileID: 72322434}
   - component: {fileID: 72322433}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 80529069}
   - component: {fileID: 80529068}
   - component: {fileID: 80529067}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CentralBusinessDistrict
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1198,7 +1198,7 @@ GameObject:
   - component: {fileID: 118309054}
   - component: {fileID: 118309053}
   - component: {fileID: 118309052}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: El Paria Border Crossing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,6 +1291,16 @@ MonoBehaviour:
   cam: {fileID: 1263868458}
   speed: 96
   turnSmoothTime: 0.1
+  Ground:
+    serializedVersion: 2
+    m_Bits: 8
+  animCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Timer: 0
 --- !u!95 &150520955 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7906fd0030dee13469f6b81059fc6442, type: 3}
@@ -1307,9 +1317,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5127986
-  m_Height: 1.6983238
+  m_Height: 1.7798947
   m_Direction: 1
-  m_Center: {x: 1.549623e-11, y: 0.92317736, z: -0.012798596}
+  m_Center: {x: 1.549623e-11, y: 0.8823919, z: -0.012798596}
 --- !u!54 &150520957
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1324,8 +1334,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 32
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &158561670
 GameObject:
   m_ObjectHideFlags: 3
@@ -1590,7 +1600,7 @@ GameObject:
   - component: {fileID: 166193216}
   - component: {fileID: 166193215}
   - component: {fileID: 166193214}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ValenciaIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2079,7 +2089,7 @@ GameObject:
   - component: {fileID: 234975501}
   - component: {fileID: 234975500}
   - component: {fileID: 234975499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OldTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2157,7 +2167,7 @@ GameObject:
   - component: {fileID: 251832732}
   - component: {fileID: 251832731}
   - component: {fileID: 251832730}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain_(19019.00, 0.00, -14816.00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3137,7 +3147,7 @@ GameObject:
   - component: {fileID: 420837249}
   - component: {fileID: 420837248}
   - component: {fileID: 420837247}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3215,7 +3225,7 @@ GameObject:
   - component: {fileID: 421722626}
   - component: {fileID: 421722625}
   - component: {fileID: 421722624}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Japantown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3312,7 +3322,7 @@ GameObject:
   - component: {fileID: 428365747}
   - component: {fileID: 428365746}
   - component: {fileID: 428365745}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Downtown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3390,7 +3400,7 @@ GameObject:
   - component: {fileID: 429021490}
   - component: {fileID: 429021489}
   - component: {fileID: 429021488}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Northumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3546,7 +3556,7 @@ GameObject:
   - component: {fileID: 446908221}
   - component: {fileID: 446908220}
   - component: {fileID: 446908219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Embassy District (Northern part) Chinatown (Southern part)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3971,7 +3981,7 @@ GameObject:
   - component: {fileID: 569801263}
   - component: {fileID: 569801262}
   - component: {fileID: 569801261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Waterfront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4453,7 +4463,7 @@ GameObject:
   - component: {fileID: 687688611}
   - component: {fileID: 687688610}
   - component: {fileID: 687688609}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Westside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4604,7 +4614,7 @@ GameObject:
   - component: {fileID: 712737786}
   - component: {fileID: 712737785}
   - component: {fileID: 712737784}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OldTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4741,7 +4751,7 @@ GameObject:
   - component: {fileID: 767817203}
   - component: {fileID: 767817202}
   - component: {fileID: 767817201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: East Chinatown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4997,7 +5007,7 @@ GameObject:
   - component: {fileID: 881861222}
   - component: {fileID: 881861221}
   - component: {fileID: 881861220}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ElCamtino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5153,7 +5163,7 @@ GameObject:
   - component: {fileID: 900039106}
   - component: {fileID: 900039105}
   - component: {fileID: 900039104}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OldTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5309,7 +5319,7 @@ GameObject:
   - component: {fileID: 906386991}
   - component: {fileID: 906386990}
   - component: {fileID: 906386989}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rural
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5597,7 +5607,7 @@ GameObject:
   - component: {fileID: 965877319}
   - component: {fileID: 965877318}
   - component: {fileID: 965877317}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ValenciaIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6069,7 +6079,7 @@ GameObject:
   - component: {fileID: 993515926}
   - component: {fileID: 993515925}
   - component: {fileID: 993515924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rural
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6147,7 +6157,7 @@ GameObject:
   - component: {fileID: 1025934455}
   - component: {fileID: 1025934454}
   - component: {fileID: 1025934453}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ElCamtino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6355,7 +6365,7 @@ GameObject:
   - component: {fileID: 1090772915}
   - component: {fileID: 1090772914}
   - component: {fileID: 1090772913}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Port
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7855,7 +7865,7 @@ GameObject:
   - component: {fileID: 1479673203}
   - component: {fileID: 1479673202}
   - component: {fileID: 1479673201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Port
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7933,7 +7943,7 @@ GameObject:
   - component: {fileID: 1480591147}
   - component: {fileID: 1480591146}
   - component: {fileID: 1480591145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Waterfront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8111,7 +8121,7 @@ GameObject:
   - component: {fileID: 1499296477}
   - component: {fileID: 1499296476}
   - component: {fileID: 1499296475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OldTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8189,7 +8199,7 @@ GameObject:
   - component: {fileID: 1510635184}
   - component: {fileID: 1510635183}
   - component: {fileID: 1510635182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain_(19019.00, 0.00, -9816.00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8267,7 +8277,7 @@ GameObject:
   - component: {fileID: 1511997068}
   - component: {fileID: 1511997067}
   - component: {fileID: 1511997066}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Northumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8345,7 +8355,7 @@ GameObject:
   - component: {fileID: 1534114221}
   - component: {fileID: 1534114220}
   - component: {fileID: 1534114219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Westside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,7 +8492,7 @@ GameObject:
   - component: {fileID: 1565303822}
   - component: {fileID: 1565303821}
   - component: {fileID: 1565303820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Japantown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8597,7 +8607,7 @@ GameObject:
   - component: {fileID: 1607302607}
   - component: {fileID: 1607302606}
   - component: {fileID: 1607302605}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Las Rinas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8869,7 +8879,7 @@ GameObject:
   - component: {fileID: 1640940877}
   - component: {fileID: 1640940876}
   - component: {fileID: 1640940875}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9141,7 +9151,7 @@ GameObject:
   - component: {fileID: 1654057343}
   - component: {fileID: 1654057342}
   - component: {fileID: 1654057341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Las Rinas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9316,7 +9326,7 @@ GameObject:
   - component: {fileID: 1722513843}
   - component: {fileID: 1722513842}
   - component: {fileID: 1722513841}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9501,7 +9511,7 @@ GameObject:
   - component: {fileID: 1764221674}
   - component: {fileID: 1764221673}
   - component: {fileID: 1764221672}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rural
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9831,7 +9841,7 @@ GameObject:
   - component: {fileID: 1842432402}
   - component: {fileID: 1842432401}
   - component: {fileID: 1842432400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9909,7 +9919,7 @@ GameObject:
   - component: {fileID: 1847412162}
   - component: {fileID: 1847412161}
   - component: {fileID: 1847412160}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain_(19019.00, 0.00, -4816.00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10025,7 +10035,7 @@ GameObject:
   - component: {fileID: 1877155056}
   - component: {fileID: 1877155055}
   - component: {fileID: 1877155054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ElCamtino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10432,7 +10442,7 @@ GameObject:
   - component: {fileID: 1917281682}
   - component: {fileID: 1917281681}
   - component: {fileID: 1917281680}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OldTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10607,7 +10617,7 @@ GameObject:
   - component: {fileID: 2016951125}
   - component: {fileID: 2016951124}
   - component: {fileID: 2016951123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chinatown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10685,7 +10695,7 @@ GameObject:
   - component: {fileID: 2040581155}
   - component: {fileID: 2040581154}
   - component: {fileID: 2040581153}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10763,7 +10773,7 @@ GameObject:
   - component: {fileID: 2057451271}
   - component: {fileID: 2057451270}
   - component: {fileID: 2057451269}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11024,7 +11034,7 @@ GameObject:
   - component: {fileID: 2066540345}
   - component: {fileID: 2066540344}
   - component: {fileID: 2066540343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EvergladeCityAirport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11180,7 +11190,7 @@ GameObject:
   - component: {fileID: 2098300323}
   - component: {fileID: 2098300322}
   - component: {fileID: 2098300321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain_(-7950.00, 0.00, -24816.00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

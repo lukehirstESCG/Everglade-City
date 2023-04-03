@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
+    CharacterController controller;
     public Animator anim;
     public Transform cam;
     public float speed = 6f;
@@ -12,47 +13,72 @@ public class PlayerMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    [SerializeField]
+    private LayerMask Ground;
+
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
+
     void Update()
     {
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
+        // Performs a raycast hit.
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, controller.height / 2 + 0.1f, Ground))
+        {
+            // Snaps to the slope
+            Vector3 slopeNormal = hit.normal;
+            direction = Quaternion.FromToRotation(Vector3.up, slopeNormal) * direction;
+        }
+
+        // Is the player moving? If yes, then do these bits.
         if (direction.magnitude >= 0.01f)
         {
+            // Plays walking sound
             FindObjectOfType<AudioManager>().Play("Walking");
             anim.SetBool("isWalking", true);
+
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.MovePosition(transform.position + moveDir.normalized * speed * Time.deltaTime);
+
         }
-        else
+        // Is the player NOT moving? If yes, then do this.
+        else if (direction.magnitude <= 0f)
         {
+            // Stops Walking sound
             anim.SetBool("isWalking", false);
             FindObjectOfType<AudioManager>().Stop("Walking");
         }
-
+        // Is the player pressing a shift key? If so, double the speed.
         if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.RightShift)))
         {
+            // PLays running sound, and stops walking sound
             FindObjectOfType<AudioManager>().Play("Running");
             FindObjectOfType<AudioManager>().Stop("Walking");
+
+            // double the speed of the inital speed variable.
             runSpeed = speed * 2;
             anim.SetBool("isRunning", true);
             Debug.Log("Target is running at: " + runSpeed);
         }
+        // Has the player stopped pressing a shift key? If so, return the animation to walking.
         else
         {
+            // Stops the running sound, and plays the walking sound.
             FindObjectOfType<AudioManager>().Stop("Running");
             FindObjectOfType<AudioManager>().Play("Walking");
+
+            // Sets the animation back to walking.
             anim.SetBool("isRunning", false);
         }
     }
