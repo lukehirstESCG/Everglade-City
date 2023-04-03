@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,10 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
     private float runSpeed = 12f;
     public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
+    public float gravity = -9f;
 
-    [SerializeField]
-    private LayerMask Ground;
+    Vector3 velocity;
+
+    float turnSmoothVelocity;
 
     void Start()
     {
@@ -42,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
         }
 
         // Is the player NOT moving? If yes, then do this.
