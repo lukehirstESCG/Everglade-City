@@ -31,8 +31,10 @@ public class Soundtrack : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("Track2");
                 yield return new WaitForSeconds(192.6f);
                 FindObjectOfType<AudioManager>().Stop("Track2");
+                break;
             }
-                
+            yield return null;
         }
+        
     }
 }
