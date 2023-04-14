@@ -56,8 +56,8 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _scall: 4
-    - _strength: 145
+    - _scall: 5
+    - _strength: 128
     m_Colors:
-    - _dir: {r: -1.15, g: -0.43, b: 0, a: 0}
+    - _dir: {r: -0.21, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
