@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            
             if(isPaused)
             {
                 ResumeGame();
@@ -31,14 +32,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        isPaused = true;
-
+        FindObjectOfType<AudioManager>().Stop("Track1");
+        Cursor.lockState = CursorLockMode.None;
     }
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void QuitToDesktop()
     {

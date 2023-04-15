@@ -7,7 +7,7 @@ public class Teleporting : MonoBehaviour
     public Transform teleportTarget;
     public GameObject Player;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider Player)
     {
         Player.transform.position = teleportTarget.transform.position;
         Debug.Log("You have arrived at: " + teleportTarget);

@@ -21,18 +21,18 @@ public class TrafficLight : MonoBehaviour
             {
                 greenLight.SetActive(false);
                 yellowLight.SetActive(true);
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(2f);
             }
             if (yellowLight == true)
             {
                 yellowLight.SetActive(false);
                 redLight.SetActive(true);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(10f);
             }
             if (redLight == true)
             {
                 yellowLight.SetActive(true);
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(2f);
             }
             if (redLight && yellowLight == true)
             {
@@ -43,10 +43,9 @@ public class TrafficLight : MonoBehaviour
             }
             if (greenLight == true)
             {
-                yellowLight.SetActive(false);
-                greenLight.SetActive(false);
-                redLight.SetActive(false);
-                yield return new WaitForSeconds(1f);
+                yellowLight.SetActive(true);
+                greenLight.SetActive (false);
+                yield return new WaitForSeconds(2f);
             }
 
            }
