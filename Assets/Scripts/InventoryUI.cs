@@ -8,6 +8,7 @@ public class InventoryUI : MonoBehaviour
     private TextMeshProUGUI collectibleText;
 
     public int TotalCollectibles;
+    
 
     // Start is called before the first frame update
     void Start()

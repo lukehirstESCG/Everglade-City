@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        FindObjectOfType<AudioManager>().Stop("Track1");
+        AudioListener.pause = true;
         Cursor.lockState = CursorLockMode.None;
     }
     public void ResumeGame()
@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        AudioListener.pause = false;
     }
     public void QuitToDesktop()
     {
@@ -49,6 +50,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Front-End");
-        FindObjectOfType<AudioManager>().Stop("Walking");
+        AudioListener.pause = true;
     }
 }
