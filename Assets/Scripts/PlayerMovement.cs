@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public States state;
     CharacterController controller;
     public Animator anim;
     public Transform cam;
@@ -25,35 +26,70 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-
-        // Is the player moving? If yes, then do these bits.
-        if (direction.magnitude >= 0.01f)
+        DoLogic();
+    }
+    void DoLogic()
+    {
+        if (state == States.Idle)
         {
-            // Plays walking sound
-            FindObjectOfType<AudioManager>().Play("Walking");
-            anim.SetBool("isWalking", true);
-
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            velocity.y += gravity * Time.deltaTime;
-
-            controller.Move(velocity * Time.deltaTime);
+            PlayerStanding();
         }
-
-        // Is the player NOT moving? If yes, then do this.
-        else if (direction.magnitude <= 0f)
+        if (state == States.Walk)
+        {
+            PlayerWalk();
+        }
+        if (state == States.Run)
+        {
+            PlayerRun();
+        }
+    }
+    void PlayerStanding()
+    {
         {
             // Stops Walking sound
             anim.SetBool("isWalking", false);
             FindObjectOfType<AudioManager>().Stop("Walking");
+            state = States.Idle;
         }
-        // Is the player pressing a shift key? If so, double the speed.
+    }
+    void PlayerWalk()
+    {
+        {
+            if (state == States.Walk)
+            {
+                state = States.Walk;
+            }
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+            state = States.Walk;
+
+            if (direction.magnitude > 0.01f)
+            {
+                // Plays walking sound
+                FindObjectOfType<AudioManager>().Play("Walking");
+                anim.SetBool("isWalking", true);
+
+                // Controls the camera
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+                velocity.y += gravity * Time.deltaTime;
+
+                controller.Move(velocity * Time.deltaTime);
+
+            }
+            else if (direction.magnitude > 0.01f != true)
+            {
+                state = States.Idle;
+            }
+        }
+    }
+    void PlayerRun()
+    {
         if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.RightShift)))
         {
             // PLays running sound, and stops walking sound
@@ -64,8 +100,8 @@ public class PlayerMovement : MonoBehaviour
             runSpeed = speed * 2;
             anim.SetBool("isRunning", true);
             Debug.Log("Target is running at: " + runSpeed);
+            state = States.Run;
         }
-        // Has the player stopped pressing a shift key? If so, return the animation to walking.
         else
         {
             // Stops the running sound, and plays the walking sound.
@@ -74,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Sets the animation back to walking.
             anim.SetBool("isRunning", false);
+            state = States.Walk;
         }
     }
 }
