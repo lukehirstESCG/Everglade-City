@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
+        state = States.Idle;
     }
 
     void Update()
@@ -46,10 +47,11 @@ public class PlayerMovement : MonoBehaviour
     void PlayerStanding()
     {
         {
-            // Stops Walking sound
-            anim.SetBool("isWalking", false);
-            FindObjectOfType<AudioManager>().Stop("Walking");
-            state = States.Idle;
+            // Are we about to move?
+            if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
+            {
+                state = States.Walk;
+            }
         }
     }
     void PlayerWalk()
@@ -81,18 +83,26 @@ public class PlayerMovement : MonoBehaviour
 
                 controller.Move(velocity * Time.deltaTime);
 
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                {
+                   state = States.Run;
+                   Debug.Log("Running!!");
+                }
+
             }
-            else if (direction.magnitude > 0.01f != true)
+            // Stops the character
+            if (direction.magnitude <= 0.01f)
             {
                 state = States.Idle;
+                anim.SetBool("isWalking", false);
+                FindObjectOfType<AudioManager>().Stop("Walking");
             }
         }
     }
     void PlayerRun()
     {
-        if (Input.GetKey(KeyCode.LeftShift) || (Input.GetKey(KeyCode.RightShift)))
         {
-            // PLays running sound, and stops walking sound
+            // Plays running sound, and stops walking sound
             FindObjectOfType<AudioManager>().Play("Running");
             FindObjectOfType<AudioManager>().Stop("Walking");
 
@@ -100,9 +110,23 @@ public class PlayerMovement : MonoBehaviour
             runSpeed = speed * 2;
             anim.SetBool("isRunning", true);
             Debug.Log("Target is running at: " + runSpeed);
-            state = States.Run;
+
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
         }
-        else
+        // Have we released the key?
+        if (!Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             // Stops the running sound, and plays the walking sound.
             FindObjectOfType<AudioManager>().Stop("Running");
