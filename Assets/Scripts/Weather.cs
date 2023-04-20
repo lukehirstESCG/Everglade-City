@@ -1,31 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Weather : MonoBehaviour
 {
     public ParticleSystem Rain;
-    private float randomValue;
+    private float diceValue;
     private float thresholdValue;
 
     private void Start()
     {
-        thresholdValue = 0.5f;
-        randomValue = Random.value;
+        thresholdValue = 3f;
+        diceValue = Random.Range(1, 7);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Raining()
     {
-        if (randomValue < thresholdValue)
+        if (Rain.isPlaying)
         {
-            Rain.Stop();
-            Debug.Log("Stopping Rain");
+            if (diceValue < thresholdValue)
+            {
+                Rain.Stop();
+                Debug.Log("Stopping Rain");
+            }
         }
         else
         {
-            randomValue = Random.value;
-            if (randomValue > thresholdValue)
+            diceValue = Random.Range(1, 7);
+            if (diceValue >= thresholdValue)
             {
                 Rain.Play();
                 Debug.Log("Raining!");
