@@ -6,48 +6,53 @@ public class TrafficLight : MonoBehaviour
     public GameObject redLight;
     public GameObject yellowLight;
     public GameObject greenLight;
+    float delay;
 
     private void Start()
     {
-        StartCoroutine(TrafficLightCoroutine());
         redLight.SetActive(true);
-    }
+        StartCoroutine(TrafficLightController());
 
-    IEnumerator TrafficLightCoroutine()
+    }
+    IEnumerator TrafficLightController()
     {
         while (true)
         {
-            if (greenLight == true)
-            {
-                greenLight.SetActive(false);
-                yellowLight.SetActive(true);
-                yield return new WaitForSeconds(2f);
-            }
-            if (yellowLight == true)
-            {
-                yellowLight.SetActive(false);
-                redLight.SetActive(true);
-                yield return new WaitForSeconds(10f);
-            }
             if (redLight == true)
             {
                 yellowLight.SetActive(true);
-                yield return new WaitForSeconds(2f);
+                greenLight.SetActive(false);
+                delay = 2;
+                yield return new WaitForSeconds(delay);
             }
+
             if (redLight && yellowLight == true)
             {
                 redLight.SetActive(false);
                 yellowLight.SetActive(false);
                 greenLight.SetActive(true);
-                yield return new WaitForSeconds(10f);
+                delay = 5;
+                yield return new WaitForSeconds(delay);
             }
+            
             if (greenLight == true)
             {
                 yellowLight.SetActive(true);
-                greenLight.SetActive (false);
-                yield return new WaitForSeconds(2f);
+                greenLight.SetActive(false);
+                delay = 2;
+                yield return new WaitForSeconds(delay);
             }
 
-           }
+            if (yellowLight == true)
+            {
+                yellowLight.SetActive(false);
+                redLight.SetActive(true);
+                delay = 5;
+                yield return new WaitForSeconds(delay);
+            }
         }
+
+
     }
+
+}
