@@ -1,37 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Weather : MonoBehaviour
 {
-    public ParticleSystem Rain;
-    private float diceValue;
-    private float thresholdValue;
+    public GameObject[] Rain;
 
-    private void Start()
+    public Color RainyColour;
+    public Color ClearColour;
+
+    private int particleRandom;
+
+    private float chanceOfRain = 0.5f;
+    private float RainLength;
+    private bool isRaining;
+
+    private float dice;
+
+    private float timer = 0f;
+
+    private void Update()
     {
-        thresholdValue = 3f;
-        diceValue = Random.Range(1, 7);
+        Raining();
+        NotRaining();
     }
 
-    void Raining()
+    private void Raining(int particleRandom)
     {
-        if (Rain.isPlaying)
+        Rain[particleRandom].SetActive(true);
+    }
+
+    private void StopRaining(int particleRandom)
+    {
+        Rain[particleRandom].SetActive(false);
+    }
+
+    private void Raining()
+    {
+        // Not raining
+        if (!isRaining)
         {
-            if (diceValue < thresholdValue)
+            dice = Random.Range(0f, 100f);
+
+            // Raining
+            if (dice < chanceOfRain)
             {
-                Rain.Stop();
-                Debug.Log("Stopping Rain");
+                particleRandom = Random.Range(0, Rain.Length);
+                Raining(particleRandom);
+                isRaining = true;
+                timer = Random.Range(5f, 20f);
+                RenderSettings.ambientSkyColor = RainyColour;
             }
         }
-        else
+    }
+
+    private void NotRaining()
+    {
+        // Is it already raining?
+        if (isRaining)
         {
-            diceValue = Random.Range(1, 7);
-            if (diceValue >= thresholdValue)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                Rain.Play();
-                Debug.Log("Raining!");
+                // Stop raining
+                isRaining = false;
+                StopRaining(particleRandom);
+                RenderSettings.ambientSkyColor = ClearColour;
             }
         }
     }
