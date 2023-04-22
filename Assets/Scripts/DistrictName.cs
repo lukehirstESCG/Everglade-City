@@ -11,20 +11,21 @@ public class DistrictName : MonoBehaviour
 
     private void Start()
     {
-        string DistrictText = "";
+        DistrictText.text = District;
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            DistrictText.text = "" + District;  
+            DistrictText.text = District;  
         }
     }
-    private void OnCollisonExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.tag != "Player")
+        if (other.gameObject.tag != "Player")
         {
-            DistrictText.text = "" + District;
+            DistrictText.text = "";
         }
     }
 }
