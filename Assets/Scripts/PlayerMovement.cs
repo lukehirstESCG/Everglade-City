@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                 {
                    state = States.Run;
-                   Debug.Log("Running!!");
                 }
 
             }
@@ -109,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
             // double the speed of the inital speed variable.
             runSpeed = speed * 2;
             anim.SetBool("isRunning", true);
-            Debug.Log("Target is running at: " + runSpeed);
 
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");

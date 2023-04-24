@@ -5,6 +5,8 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance;
+
     private TextMeshProUGUI collectibleText;
 
     public int TotalCollectibles;

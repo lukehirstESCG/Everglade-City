@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40427981248378923, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 3872026872262808000, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -52,9 +56,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4159893519055619151, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 4537345015550937978, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
       propertyPath: m_Name
-      value: no_vehicles
+      value: no_vehicles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537345015550937978, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818482923680572777, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838677726889240827, guid: 63fd07bfcc420f643936a493e7060194, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

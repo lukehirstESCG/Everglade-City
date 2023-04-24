@@ -16,9 +16,9 @@ public class ValenciaislandLights : MonoBehaviour
     private void Start()
     {
         V.SetActive(true);
-        StartCoroutine(ValenciaIslandLightShow());
+        StartCoroutine(LightShow());
     }
-    IEnumerator ValenciaIslandLightShow()
+    IEnumerator LightShow()
     {
         while (true)
         {
@@ -75,7 +75,7 @@ public class ValenciaislandLights : MonoBehaviour
                 I.SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (V && A && L && E && N && C && I && A == true)
+            if (V && A && L && E && N && C && I && A2 == true)
             {
                 V.SetActive(false);
                 A.SetActive(false);
@@ -84,6 +84,9 @@ public class ValenciaislandLights : MonoBehaviour
                 N.SetActive(false);
                 C.SetActive(false);
                 I.SetActive(false);
+                A2.SetActive(false);
+                yield return new WaitForSeconds(1);
+                V.SetActive(true);
                 yield return new WaitForSeconds(1);
             }
         }
