@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2649880944719872913}
   m_Layer: 0
   m_Name: landmark_collectible
-  m_TagString: Untagged
+  m_TagString: landmark_collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

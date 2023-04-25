@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class CityName : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CityName : MonoBehaviour
 
     private void Start()
     {
-        MainDistrict.text = "";
+        MainDistrict.text = LargeDistrict;
     }
 
     private void Update()
@@ -45,6 +46,20 @@ public class CityName : MonoBehaviour
         isOnScreen = false;
 
         MainDistrict.text = "";
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Is the player in a new LargeDistrict? If so, start the coroutine.
+        StartCoroutine(PrimaryDistrictName());
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag != "Player")
+        {
+            isOnScreen = false;
+            MainDistrict.text = "";
+        }
     }
 
 }

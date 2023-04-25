@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System.Linq;
 
 public class AllCollectibles : MonoBehaviour
 {
@@ -19,10 +20,12 @@ public class AllCollectibles : MonoBehaviour
     private void Start()
     {
         FinishMenu.SetActive(false);
+        TotalCollectibles = GameObject.FindGameObjectsWithTag("landmark_collectible").Where(obj => obj.activeSelf).Count();
     }
+
     public void Finished(PlayerInventory inventory)
     {
-        if (TotalCollectibles >= inventory.NumberOfCollectibles)
+        if (inventory.NumberOfCollectibles >= TotalCollectibles)
         {
             Debug.Log("ALL DONE");
             AllCollectiblesFound++;

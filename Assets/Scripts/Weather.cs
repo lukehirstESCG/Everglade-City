@@ -6,9 +6,6 @@ public class Weather : MonoBehaviour
 {
     public GameObject[] Rain;
 
-    public Color RainyColour;
-    public Color ClearColour;
-
     private int particleRandom;
 
     private float chanceOfRain = 0.5f;
@@ -18,6 +15,12 @@ public class Weather : MonoBehaviour
     private float dice;
 
     private float timer = 0f;
+
+    private void Start()
+    {
+        isRaining = false;
+        Rain[particleRandom].SetActive(false);
+    }
 
     private void Update()
     {
@@ -49,7 +52,7 @@ public class Weather : MonoBehaviour
                 Raining(particleRandom);
                 isRaining = true;
                 timer = Random.Range(5f, 20f);
-                RenderSettings.ambientSkyColor = RainyColour;
+                FindObjectOfType<AudioManager>().Play("Rain");
             }
         }
     }
@@ -65,7 +68,7 @@ public class Weather : MonoBehaviour
                 // Stop raining
                 isRaining = false;
                 StopRaining(particleRandom);
-                RenderSettings.ambientSkyColor = ClearColour;
+                FindObjectOfType<AudioManager>().Stop("Rain");
             }
         }
     }
