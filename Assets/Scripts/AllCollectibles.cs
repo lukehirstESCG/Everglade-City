@@ -20,12 +20,12 @@ public class AllCollectibles : MonoBehaviour
     private void Start()
     {
         FinishMenu.SetActive(false);
-        TotalCollectibles = GameObject.FindGameObjectsWithTag("landmark_collectible").Where(obj => obj.activeSelf).Count();
+        TotalCollectibles = 1;
     }
 
     public void Finished(PlayerInventory inventory)
     {
-        if (inventory.NumberOfCollectibles >= TotalCollectibles)
+        if (TotalCollectibles >= inventory.NumberOfCollectibles)
         {
             Debug.Log("ALL DONE");
             AllCollectiblesFound++;

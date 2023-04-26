@@ -34,6 +34,9 @@ public class CityName : MonoBehaviour
 
     IEnumerator PrimaryDistrictName()
     {
+        {
+            MainDistrict.text = LargeDistrict;
+        }
         // Displays "DISTRICT NAME" on the screen
         isOnScreen = true;
 
@@ -50,8 +53,9 @@ public class CityName : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Is the player in a new LargeDistrict? If so, start the coroutine.
-        StartCoroutine(PrimaryDistrictName());
+        // Is the player in a new LargeDistrict? If so, display the new name
+        MainDistrict.text = LargeDistrict;
+        isOnScreen = true;
     }
     private void OnTriggerExit(Collider other)
     {
