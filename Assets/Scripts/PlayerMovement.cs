@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
                 controller.Move(velocity * Time.deltaTime);
 
-                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
                    state = States.Run;
                 }

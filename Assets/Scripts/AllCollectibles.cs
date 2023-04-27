@@ -5,49 +5,58 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-using System.Linq;
 
 public class AllCollectibles : MonoBehaviour
 {
     public TextMeshProUGUI FinishText;
     public GameObject FinishMenu;
     public GameObject MainGamePanel;
-    public int AllCollectiblesFound { get; private set; }
+    private int CollectiblesFound;
     private int TotalCollectibles;
 
     public UnityEvent<AllCollectibles> AllCollectiblesCompleted;
 
     private void Start()
     {
+        // Sets the FinishMenu to false, collectibles found to 0, and how many total collectibles in the scene.
         FinishMenu.SetActive(false);
-        TotalCollectibles = 1;
+        CollectiblesFound = 0;
+        TotalCollectibles = FindObjectsOfType<Collectible>().Length;
     }
 
-    public void Finished(PlayerInventory inventory)
+    public void Finished()
     {
-        if (TotalCollectibles >= inventory.NumberOfCollectibles)
+        CollectiblesFound++;
+
+        // Have all of the collectibles been found?
+        if (CollectiblesFound == TotalCollectibles)
         {
+            // End the game.
             Debug.Log("ALL DONE");
-            AllCollectiblesFound++;
             AllCollectiblesCompleted.Invoke(this);
             FinishMenu.SetActive(true);
             Time.timeScale = 0f;
             MainGamePanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     public void ContinuePlaying()
     {
+        // Resume the game.
         FinishMenu.SetActive(false);
         MainGamePanel.SetActive(true);
         AudioListener.pause = false;
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void Museum()
     {
+        // Transports the player to a Museum of objects.
         FinishMenu.SetActive(false);
         MainGamePanel.SetActive(false);
         SceneManager.LoadScene("Museum");
         AudioListener.pause = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
