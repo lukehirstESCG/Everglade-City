@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     CharacterController controller;
     public Animator anim;
     public Transform cam;
-    public float speed = 6f;
-    private float runSpeed = 12f;
+    public float speed;
+    private float runSpeed;
     public float turnSmoothTime = 0.1f;
     public float gravity = -9f;
 
@@ -118,13 +118,13 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized * runSpeed * Time.deltaTime);
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
         }
         // Have we released the key?
-        if (!Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (!Input.GetKey(KeyCode.LeftShift))
         {
             // Stops the running sound, and plays the walking sound.
             FindObjectOfType<AudioManager>().Stop("Running");

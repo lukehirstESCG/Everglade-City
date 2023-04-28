@@ -24,7 +24,7 @@ public class CityName : MonoBehaviour
     private void OnZPressed()
     {
         // Is the player pressing Z, and is the name NOT on the screen?
-        if(Input.GetKeyDown(KeyCode.Z)  && !isOnScreen)
+        if(Input.GetKeyDown(KeyCode.Z) && !isOnScreen)
         {
             StartCoroutine(PrimaryDistrictName());
         }    
