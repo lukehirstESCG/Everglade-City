@@ -2,11 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadGame : MonoBehaviour
 {
-   public void LoadScene()
+    [Header("Menus")]
+    public GameObject loadingScreen;
+    public GameObject MainMenu;
+
+    [Header("Slider")]
+    public Slider loadingSlider;
+
+   public void LoadScene(string EvergladeCity)
     {
-        SceneManager.LoadScene("Everglade-City");
+        MainMenu.SetActive(false);
+        loadingScreen.SetActive(true);
+
+        StartCoroutine(LoadIntoGame(EvergladeCity));
+    }
+    IEnumerator LoadIntoGame(string EvergladeCity)
+    {
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(EvergladeCity);
+
+        while (!loadOperation.isDone)
+        {
+            float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            loadingSlider.value = progressValue;
+            yield return null;
+        }
     }
 }

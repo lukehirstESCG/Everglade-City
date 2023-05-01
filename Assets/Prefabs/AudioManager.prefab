@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8421959458433275243
+--- !u!1 &7663176070899297328
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 295720761389878554}
-  - component: {fileID: 5022728233708099111}
+  - component: {fileID: 1919450432796357697}
+  - component: {fileID: 6561055533886795644}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 123
   m_IsActive: 1
---- !u!4 &295720761389878554
+--- !u!4 &1919450432796357697
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8421959458433275243}
+  m_GameObject: {fileID: 7663176070899297328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1151.2795, y: 90.91348, z: 2306.1035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1369
+  m_RootOrder: 4597
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5022728233708099111
+--- !u!114 &6561055533886795644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8421959458433275243}
+  m_GameObject: {fileID: 7663176070899297328}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c7c9a6a1e8b07a4d9ed42228415716d, type: 3}
@@ -59,6 +59,33 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     loop: 1
+    playOnAwake: 0
+    isMusic: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: Track1
+    clip: {fileID: 8300000, guid: d4da500db88860b4b8d197877d75d4d7, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    isMusic: 1
+    isSFX: 0
+    source: {fileID: 0}
+  - name: Rain
+    clip: {fileID: 8300000, guid: 5dcc14c5ddd0b1d4daa1427544280af0, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 1
+    playOnAwake: 0
+    isMusic: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: Collectible
+    clip: {fileID: 8300000, guid: ab283f56c79db4f4eb818e65a41e9569, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
     playOnAwake: 0
     isMusic: 0
     isSFX: 1

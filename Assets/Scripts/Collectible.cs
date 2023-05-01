@@ -12,7 +12,7 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
             // Finds all collectibles in the scene.
             AllCollectibles allCollectibles = FindObjectOfType<AllCollectibles>();
