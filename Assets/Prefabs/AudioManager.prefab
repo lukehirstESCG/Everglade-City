@@ -47,8 +47,8 @@ MonoBehaviour:
   sounds:
   - name: Walking
     clip: {fileID: 8300000, guid: 2f36429f134bfc844bd8f1c778930f96, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 1
     playOnAwake: 0
     isMusic: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Running
     clip: {fileID: 8300000, guid: c1709f3d0468bdc4abdb3a33c5fa18aa, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 1
     playOnAwake: 0
     isMusic: 0
@@ -65,8 +65,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Track1
     clip: {fileID: 8300000, guid: d4da500db88860b4b8d197877d75d4d7, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     isMusic: 1
@@ -74,8 +74,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Rain
     clip: {fileID: 8300000, guid: 5dcc14c5ddd0b1d4daa1427544280af0, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 1
     playOnAwake: 0
     isMusic: 0
@@ -83,8 +83,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Collectible
     clip: {fileID: 8300000, guid: ab283f56c79db4f4eb818e65a41e9569, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     isMusic: 0
