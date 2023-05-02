@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class AllCollectibles : MonoBehaviour
 {
     public TextMeshProUGUI FinishText;
+
     public GameObject FinishMenu;
     public GameObject CreditsScreen;
     public GameObject MainGamePanel;
@@ -20,6 +21,7 @@ public class AllCollectibles : MonoBehaviour
     public GameObject Image6;
     public GameObject Image7;
     public GameObject CreditsText;
+
     private int CollectiblesFound;
     private int TotalCollectibles;
     public float delay = 1f;

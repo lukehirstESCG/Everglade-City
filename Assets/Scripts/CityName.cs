@@ -14,7 +14,6 @@ public class CityName : MonoBehaviour
     private void Start()
     {
         isOnScreen = false;
-        MainDistrict.text = "";
     }
 
     private void Update()
