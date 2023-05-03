@@ -8,7 +8,19 @@ public class Collectible : MonoBehaviour
     public static event Action OnCollected;
     public static int total;
 
-    void Awake() => total++;
+    // If we have already started the game, then set this to false.
+    private static bool StartedGame = false;
+
+    void Awake()
+    {
+        // Have we not started the game before?
+        if (StartedGame != true)
+        {
+            // If that's true, then have the initial counter.
+            total++;
+            StartedGame = true;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,11 +35,12 @@ public class Collectible : MonoBehaviour
                 // Tells the game to finish
                 allCollectibles.Finished();
             }
+            else
             {
                 // Adds the collectible to the count, and sets it to false
                 OnCollected.Invoke();
                 FindObjectOfType<AudioManager>().Play("Collectible");
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }

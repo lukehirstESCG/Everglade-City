@@ -23,6 +23,7 @@ public class LoadGame : MonoBehaviour
     IEnumerator LoadIntoGame(string EvergladeCity)
     {
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(EvergladeCity);
+        AudioListener.pause = false;
 
         while (!loadOperation.isDone)
         {

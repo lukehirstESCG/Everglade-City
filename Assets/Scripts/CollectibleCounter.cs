@@ -9,7 +9,11 @@ public class CollectibleCounter : MonoBehaviour
     public TextMeshProUGUI CollectibleText;
     int count;
 
-    void Start() => UpdateCount();
+    void Start()
+    {
+        count = 0;
+        UpdateCount();
+    }
 
     void OnEnable() => Collectible.OnCollected += OnCollectibleCollected;
     void OnDisable() => Collectible.OnCollected -= OnCollectibleCollected;

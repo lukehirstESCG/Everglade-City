@@ -11,9 +11,15 @@ public class CityName : MonoBehaviour
 
     private bool isOnScreen = false;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        MainDistrict.text = LargeDistrict;
+        isOnScreen = true;
+
+        yield return new WaitForSeconds(3);
+
         isOnScreen = false;
+        MainDistrict.text = "";
     }
 
     private void Update()
