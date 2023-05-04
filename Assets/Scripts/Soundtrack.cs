@@ -92,26 +92,20 @@ public class Soundtrack : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("Track1");
             isPlayingTrack1 = false;
 
-            if (!isPlayingTrack2)
-            {
-                FindObjectOfType<AudioManager>().Play("Track2");
-                isPlayingTrack2 = true;
-                trackName.text = $"{track2}";
-                currentTrack = 2;
-            }
+            FindObjectOfType<AudioManager>().Play("Track2");
+            isPlayingTrack2 = true;
+            trackName.text = $"{track2}";
+            currentTrack = 1;
         }
-      if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack2 == true)
+        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack2 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track2");
             isPlayingTrack2 = false;
 
-            if (!isPlayingTrack3)
-            {
-                FindObjectOfType<AudioManager>().Play("Track3");
-                isPlayingTrack3 = true;
-                trackName.text = $"{track3}";
-                currentTrack = 3;
-            }
+            FindObjectOfType<AudioManager>().Play("Track3");
+            isPlayingTrack3 = true;
+            trackName.text = $"{track3}";
+            currentTrack = 2;
         }
     }
     private void StopSong()
