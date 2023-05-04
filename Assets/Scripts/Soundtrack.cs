@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,18 +8,19 @@ public class Soundtrack : MonoBehaviour
 
     private bool isPlayingTrack1 = false;
     private bool isPlayingTrack2 = false;
-    
+    private float currentTrack = 0;
 
-   private void Update()
+
+    private void Update()
     {
-        OnRPressed();
+        OnEPressed();
         SkipSong();
         StopSong();
     }
 
-    private void OnRPressed()
+    private void OnEPressed()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(PlaySong());
         }
@@ -28,26 +30,36 @@ public class Soundtrack : MonoBehaviour
     {
         while (true)
         {
-            FindObjectOfType<AudioManager>().Play("Track1");
-            isPlayingTrack1 = true;
+            if (currentTrack == 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Track1");
+                isPlayingTrack1 = true;
 
-            yield return new WaitForSeconds(180);
+                yield return new WaitForSeconds(180);
 
-            FindObjectOfType<AudioManager>().Stop("Track1");
-            isPlayingTrack1 = false;
+                FindObjectOfType<AudioManager>().Stop("Track1");
+                isPlayingTrack1 = false;
+                currentTrack = 1;
+            }
+            if (currentTrack == 1)
+            {
+                FindObjectOfType<AudioManager>().Play("Track2");
 
-            FindObjectOfType<AudioManager>().Play("Track2");
-            isPlayingTrack1 = false;
-            
-            isPlayingTrack2 = true;
+                isPlayingTrack2 = true;
 
-            yield return new WaitForSeconds(120);
+                yield return new WaitForSeconds(120);
+
+                FindObjectOfType<AudioManager>().Stop("Track2");
+
+                isPlayingTrack2 = false;
+                currentTrack = 2;
+            }
         }
     }
 
     private void SkipSong()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayingTrack1 == true)
+        if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack1 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track1");
             isPlayingTrack1 = false;
@@ -56,18 +68,19 @@ public class Soundtrack : MonoBehaviour
             isPlayingTrack2 = true;
         }
     }
-
     private void StopSong()
     {
-        if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack1 == true)
         {
-            FindObjectOfType<AudioManager>().Stop("Track1");
-            isPlayingTrack1 = false;
-        }
-        if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack2 == true)
-        {
-            FindObjectOfType<AudioManager>().Stop("Track2");
-            isPlayingTrack2 = false;
+            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack1 == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("Track1");
+                isPlayingTrack1 = false;
+            }
+            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack2 == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("Track2");
+                isPlayingTrack2 = false;
+            }
         }
     }
 }
