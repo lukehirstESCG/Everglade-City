@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void MuteHandler(bool mute)
+    public void Mute(bool mute)
     {
         float volume = mute ? 0f : 1f;
         foreach (Sound s in sounds)

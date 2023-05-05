@@ -1,9 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Audio;
 using TMPro;
-using UnityEngine.UI;
 
 public class Soundtrack : MonoBehaviour
 {
@@ -11,10 +8,14 @@ public class Soundtrack : MonoBehaviour
     private bool isPlayingTrack1 = false;
     private bool isPlayingTrack2 = false;
     private bool isPlayingTrack3 = false;
+    private bool isPlayingTrack4 = false;
+    private bool isPlayingTrack5 = false;
     private float currentTrack = 0;
     public string track1;
     public string track2;
     public string track3;
+    public string track4;
+    public string track5;
     public TextMeshProUGUI trackName;
 
     private void Start()
@@ -40,7 +41,7 @@ public class Soundtrack : MonoBehaviour
 
     IEnumerator PlaySong()
     {
-        while (currentTrack < 3)
+        while (currentTrack <= 4)
         {
             if (currentTrack == 0)
             {
@@ -81,6 +82,31 @@ public class Soundtrack : MonoBehaviour
                 isPlayingTrack3 = false;
                 currentTrack = 3;
             }
+            if (currentTrack == 3)
+            {
+                FindObjectOfType<AudioManager>().Play("Track4");
+
+                isPlayingTrack4 = true;
+                trackName.text = $"{track4}";
+
+                yield return new WaitForSeconds(171);
+
+                FindObjectOfType<AudioManager>().Stop("Track4");
+                isPlayingTrack4 = false;
+                currentTrack = 4;
+            }
+            if (currentTrack == 4)
+            {
+                FindObjectOfType<AudioManager>().Play("Track5");
+
+                isPlayingTrack5 = true;
+                trackName.text = $"{track5}";
+
+                yield return new WaitForSeconds(5);
+
+                FindObjectOfType<AudioManager>().Stop("Track5");
+                isPlayingTrack5 = false;
+            }
             break;
         }
     }
@@ -107,6 +133,37 @@ public class Soundtrack : MonoBehaviour
             trackName.text = $"{track3}";
             currentTrack = 2;
         }
+        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack3 == true)
+        {
+            FindObjectOfType<AudioManager>().Stop("Track3");
+            isPlayingTrack3 = false;
+
+            FindObjectOfType<AudioManager>().Play("Track4");
+            isPlayingTrack4 = true;
+            trackName.text = $"{track4}";
+            currentTrack = 3;
+        }
+        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack4 == true)
+        {
+            FindObjectOfType<AudioManager>().Stop("Track4");
+            isPlayingTrack4 = false;
+
+            FindObjectOfType<AudioManager>().Play("Track5");
+            isPlayingTrack5 = true;
+            trackName.text = $"{track5}";
+            currentTrack = 4;
+        }
+        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack5 == true)
+        {
+            FindObjectOfType<AudioManager>().Stop("Track5");
+            isPlayingTrack4 = false;
+
+            FindObjectOfType<AudioManager>().Play("Track1");
+            isPlayingTrack1 = true;
+            trackName.text = $"{track1}";
+            currentTrack = 0;
+
+        }
     }
     private void StopSong()
     {
@@ -127,6 +184,18 @@ public class Soundtrack : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().Stop("Track3");
                 isPlayingTrack3 = false;
+                trackName.text = "";
+            }
+            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack4 == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("Track4");
+                isPlayingTrack4 = false;
+                trackName.text = "";
+            }
+            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack5 == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("Track5");
+                isPlayingTrack5 = false;
                 trackName.text = "";
             }
         }
