@@ -49,7 +49,7 @@ public class MuseumPauseMenu : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 0f;
-        SceneManager.LoadScene("Front-End");
+        SceneManager.LoadScene("FrontEnd");
         AudioListener.pause = true;
     }
 }
