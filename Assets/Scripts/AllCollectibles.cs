@@ -29,6 +29,7 @@ public class AllCollectibles : MonoBehaviour
         CollectiblesFound = 0;
         TotalCollectibles = FindObjectsOfType<Collectible>().Length;
         CreditsScreen.SetActive(false);
+        Image1.SetActive(false);
     }
 
     IEnumerator Credits()
@@ -36,16 +37,16 @@ public class AllCollectibles : MonoBehaviour
         CreditsScreen.SetActive(true);
         CreditsText.SetActive(true);
         AudioListener.pause = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(delay);
-        CreditsText.SetActive(false);
-        yield return new WaitForSeconds(1);
 
+        CreditsText.SetActive(false);
+        
         Image1.SetActive(true);
         yield return new WaitForSeconds(delay);
         Image1.SetActive(false);
+
         CreditsScreen.SetActive(false);
-        Time.timeScale = 0f;
         FinishMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
