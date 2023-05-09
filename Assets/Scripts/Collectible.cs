@@ -6,7 +6,7 @@ public class Collectible : MonoBehaviour
     public static event Action OnCollected;
     public static int total;
 
-    private void Awake() => total = 17;
+    private void Awake() => total = 10;
 
     private void OnTriggerEnter(Collider other)
     {
