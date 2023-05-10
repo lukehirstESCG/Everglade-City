@@ -6,11 +6,16 @@ public class Collectible : MonoBehaviour
     public static event Action OnCollected;
     public static int total;
 
-    private void Awake() => total = 10;
+    private void Awake() => total++;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDisable()
     {
-        if (other.CompareTag("Player"))
+        total--;
+    }
+
+    private void OnTriggerExit(Collider Player)
+    {
+        if (Player.CompareTag("Player"))
         {
             // Finds all collectibles in the scene.
             AllCollectibles allCollectibles = FindObjectOfType<AllCollectibles>();
@@ -23,9 +28,9 @@ public class Collectible : MonoBehaviour
             }
             {
                 // Adds the collectible to the count, and sets it to false
-                OnCollected?.Invoke();
+                OnCollected.Invoke();
                 FindObjectOfType<AudioManager>().Play("Collectible");
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }
