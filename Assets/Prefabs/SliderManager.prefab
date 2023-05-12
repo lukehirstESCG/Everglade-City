@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6910430134744735006}
-  - component: {fileID: 3014422306682611099}
   m_Layer: 0
   m_Name: SliderManager
   m_TagString: Untagged
@@ -32,20 +31,8 @@ Transform:
   - {fileID: 6910430134963690487}
   - {fileID: 6910430135866508286}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3014422306682611099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6910430134744735005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5d335f35ac2176459587dda012762d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6910430134963690486
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +81,6 @@ MonoBehaviour:
   volumeText: {fileID: 0}
   musicMixerGroup: {fileID: 8155042976739875156, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
   musicMixerParameter: MusicVolume
-  audioManager: {fileID: 0}
 --- !u!1 &6910430135866508285
 GameObject:
   m_ObjectHideFlags: 0
