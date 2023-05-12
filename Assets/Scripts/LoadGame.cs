@@ -13,7 +13,7 @@ public class LoadGame : MonoBehaviour
     [Header("Slider")]
     public Slider loadingSlider;
 
-   public void LoadScene(string EvergladeCity)
+    public void LoadScene(string EvergladeCity)
     {
         MainMenu.SetActive(false);
         loadingScreen.SetActive(true);

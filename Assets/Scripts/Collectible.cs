@@ -30,7 +30,7 @@ public class Collectible : MonoBehaviour
                 // Adds the collectible to the count, and sets it to false
                 OnCollected.Invoke();
                 FindObjectOfType<AudioManager>().Play("Collectible");
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

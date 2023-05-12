@@ -9,7 +9,6 @@ public class MusicSlider : MonoBehaviour
     public TMP_Text volumeText;
     public AudioMixerGroup musicMixerGroup;
     public string musicMixerParameter = "MusicVolume";
-    public AudioManager audioManager;
 
     private void Start()
     {
@@ -41,4 +40,3 @@ public class MusicSlider : MonoBehaviour
         volumeText.text = value.ToString("0.00");
     }
 }
-

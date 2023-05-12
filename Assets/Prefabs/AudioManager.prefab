@@ -126,5 +126,5 @@ MonoBehaviour:
     isMusic: 1
     isSFX: 0
     source: {fileID: 0}
-  musicMixerGroup: {fileID: -1845442640075035421, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
-  sfxMixerGroup: {fileID: 8155042976739875156, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
+  musicMixerGroup: {fileID: 8155042976739875156, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
+  sfxMixerGroup: {fileID: -1845442640075035421, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}

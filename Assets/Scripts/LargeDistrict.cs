@@ -42,7 +42,7 @@ public class LargeDistrict : MonoBehaviour
         Vector3 PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
         // Is the player currently within the district?
-        if (GetComponent<Collider>().bounds.Contains(PlayerPosition))
+       if (GetComponent<Collider>().bounds.Contains(PlayerPosition))
         {
             // Displays "DISTRICT NAME" on the screen
             isOnScreen = true;
@@ -70,6 +70,7 @@ public class LargeDistrict : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        // Has the player entered a district with a blank name? If so, hide the text.
         if (other.gameObject.tag != "Player")
         {
             isOnScreen = false;
