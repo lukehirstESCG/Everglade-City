@@ -8,16 +8,19 @@ public class LargeDistrict : MonoBehaviour
 {
     public string LargeDistrictName;
     public TextMeshProUGUI MainDistrict;
+    public Animator LargeDistrictFade;
 
     private bool isOnScreen = false;
 
     private IEnumerator Start()
     {
+        LargeDistrictFade.enabled = true;
         MainDistrict.text = LargeDistrictName;
         isOnScreen = true;
 
         yield return new WaitForSeconds(3);
 
+        LargeDistrictFade.enabled = false;
         isOnScreen = false;
         MainDistrict.text = "";
     }
@@ -44,6 +47,8 @@ public class LargeDistrict : MonoBehaviour
         // Is the player currently within the district?
        if (GetComponent<Collider>().bounds.Contains(PlayerPosition))
         {
+            LargeDistrictFade.enabled = true;
+
             // Displays "DISTRICT NAME" on the screen
             isOnScreen = true;
 
@@ -52,6 +57,8 @@ public class LargeDistrict : MonoBehaviour
             // Wait for 3 seconds
 
             yield return new WaitForSeconds(3);
+
+            LargeDistrictFade.enabled = false;
 
             isOnScreen = false;
 
@@ -74,6 +81,7 @@ public class LargeDistrict : MonoBehaviour
         if (other.gameObject.tag != "Player")
         {
             isOnScreen = false;
+            LargeDistrictFade.enabled = false;
             MainDistrict.text = "";
         }
     }

@@ -27,6 +27,7 @@ public class Soundtrack : MonoBehaviour
     private void Update()
     {
         OnEPressed();
+        OnRPressed();
         SkipSong();
         StopSong();
     }
@@ -36,6 +37,14 @@ public class Soundtrack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(PlaySong());
+        }
+    }
+    private void OnRPressed()
+    {
+        // Has the player pressed the R Key?
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StopCoroutine(PlaySong());
         }
     }
 
@@ -173,35 +182,30 @@ public class Soundtrack : MonoBehaviour
                 FindObjectOfType<AudioManager>().Stop("Track1");
                 isPlayingTrack1 = false;
                 trackName.text = "";
-                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack2 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track2");
                 isPlayingTrack2 = false;
                 trackName.text = "";
-                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack3 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track3");
                 isPlayingTrack3 = false;
                 trackName.text = "";
-                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack4 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track4");
                 isPlayingTrack4 = false;
                 trackName.text = "";
-                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack5 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track5");
                 isPlayingTrack5 = false;
                 trackName.text = "";
-                StopCoroutine(PlaySong());
             }
         }
     }
