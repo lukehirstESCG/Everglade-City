@@ -10,12 +10,7 @@ public class AllCollectibles : MonoBehaviour
 {
     public TextMeshProUGUI FinishText;
 
-    public GameObject FinishMenu;
-    public GameObject CreditsScreen;
-    public GameObject MainGamePanel;
-    public GameObject Image1;
-    public GameObject CreditsText;
-
+    public GameObject[] Finish;
     private int CollectiblesFound;
     private int TotalCollectibles;
     public float delay = 25f;
@@ -25,29 +20,28 @@ public class AllCollectibles : MonoBehaviour
     private void Start()
     {
         // Sets the FinishMenu to false, collectibles found to 0, and how many total collectibles in the scene.
-        FinishMenu.SetActive(false);
+        Finish[0].SetActive(false);
         CollectiblesFound = 0;
         TotalCollectibles = FindObjectsOfType<Collectible>().Length;
-        CreditsScreen.SetActive(false);
-        Image1.SetActive(false);
+        Finish[1].SetActive(false);
+        Finish[3].SetActive(false);
     }
 
     IEnumerator Credits()
     {
-        CreditsScreen.SetActive(true);
-        CreditsText.SetActive(true);
+        Finish[1].SetActive(true);
+        Finish[4].SetActive(true);
         AudioListener.pause = true;
         Time.timeScale = 1f;
         yield return new WaitForSeconds(delay);
 
-        CreditsText.SetActive(false);
-        
-        Image1.SetActive(true);
+        Finish[4].SetActive(false);
+        Finish[3].SetActive(true);
         yield return new WaitForSeconds(delay);
-        Image1.SetActive(false);
+        Finish[3].SetActive(false);
 
-        CreditsScreen.SetActive(false);
-        FinishMenu.SetActive(true);
+        Finish[1].SetActive(false);
+        Finish[0].SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -62,7 +56,7 @@ public class AllCollectibles : MonoBehaviour
             Debug.Log("ALL DONE");
             AllCollectiblesCompleted.Invoke(this);
 
-            MainGamePanel.SetActive(false);
+            Finish[2].SetActive(false);
 
             StartCoroutine(Credits());
         }
@@ -70,8 +64,8 @@ public class AllCollectibles : MonoBehaviour
     public void ContinuePlaying()
     {
         // Resume the game.
-        FinishMenu.SetActive(false);
-        MainGamePanel.SetActive(true);
+        Finish[0].SetActive(false);
+        Finish[2].SetActive(true);
         AudioListener.pause = false;
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
@@ -79,8 +73,8 @@ public class AllCollectibles : MonoBehaviour
     public void Museum()
     {
         // Transports the player to a Museum of objects.
-        FinishMenu.SetActive(false);
-        MainGamePanel.SetActive(false);
+        Finish[0].SetActive(false);
+        Finish[2].SetActive(false);
         SceneManager.LoadScene("Museum");
         Time.timeScale = 1f;
         AudioListener.pause = false;

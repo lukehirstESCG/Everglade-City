@@ -7,8 +7,7 @@ public class MuseumPauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public bool isPaused;
-    public AudioSource Menu;
-    public AudioSource Back;
+    public AudioSource[] Sound;
 
     private void Start()
     {
@@ -35,8 +34,8 @@ public class MuseumPauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         AudioListener.pause = true;
-        Menu.ignoreListenerPause = true;
-        Back.ignoreListenerPause = true;
+        Sound[0].ignoreListenerPause = true;
+        Sound[1].ignoreListenerPause = true;
         Cursor.lockState = CursorLockMode.None;
     }
     public void ResumeGame()

@@ -1,18 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ZebraCrossing : MonoBehaviour
+public class UKZebraCrossing : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject zebracrossingLight;
+
+    private void Start()
     {
-        
+        zebracrossingLight.SetActive(true);
+        StartCoroutine(Crossing());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Crossing()
     {
-        
+        while (true)
+        {
+            zebracrossingLight.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+
+            zebracrossingLight.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

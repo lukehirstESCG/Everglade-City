@@ -4,11 +4,13 @@ using TMPro;
 public class DistrictName : MonoBehaviour
 {
     public string District;
+    public bool DistrictVisible = false;
     public TextMeshProUGUI DistrictText;
 
     private void Start()
     {
-        DistrictText.text = District;
+        DistrictText.text = "";
+        DistrictVisible = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -16,6 +18,7 @@ public class DistrictName : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             DistrictText.text = District;  
+            DistrictVisible = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -23,6 +26,7 @@ public class DistrictName : MonoBehaviour
         if (other.gameObject.tag != "Player")
         {
             DistrictText.text = "";
+            DistrictVisible = false;
         }
     }
 }

@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class LargeDistrict : MonoBehaviour
@@ -14,15 +12,20 @@ public class LargeDistrict : MonoBehaviour
 
     private IEnumerator Start()
     {
-        LargeDistrictFade.enabled = true;
-        MainDistrict.text = LargeDistrictName;
-        isOnScreen = true;
+        Vector3 PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
-        yield return new WaitForSeconds(3);
+        if (GetComponent<Collider>().bounds.Contains(PlayerPosition))
+        {
+            LargeDistrictFade.enabled = true;
+            MainDistrict.text = LargeDistrictName;
+            isOnScreen = true;
 
-        LargeDistrictFade.enabled = false;
-        isOnScreen = false;
-        MainDistrict.text = "";
+            yield return new WaitForSeconds(3);
+
+            LargeDistrictFade.enabled = false;
+            isOnScreen = false;
+            MainDistrict.text = "";
+        }
     }
 
     private void Update()

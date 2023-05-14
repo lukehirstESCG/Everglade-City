@@ -5124,8 +5124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172b66c61e793914bad7c6f262d57698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 2003177187}
-  MainMenu: {fileID: 1471640733}
+  loadingPanels:
+  - {fileID: 1471640733}
+  - {fileID: 2003177187}
   loadingSlider: {fileID: 405731351}
 --- !u!4 &824234277
 Transform:

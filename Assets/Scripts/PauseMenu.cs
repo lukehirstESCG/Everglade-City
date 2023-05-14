@@ -3,17 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    public GameObject[] Panels;
     public bool isPaused;
-    public GameObject MainGamePanel;
-    public AudioSource Menu;
-    public AudioSource Back;
+    public AudioSource[] Sounds;
     public static int total;
 
     private void Start()
     {
-        pauseMenu.SetActive(false);
-        MainGamePanel.SetActive(true);
+        Panels[0].SetActive(false);
+        Panels[1].SetActive(true);
     }
 
     private void Update()
@@ -33,18 +31,18 @@ public class PauseMenu : MonoBehaviour
     }
     public void PauseGame()
     {
-        pauseMenu.SetActive(true);
-        MainGamePanel.SetActive(false);
+        Panels[0].SetActive(true);
+        Panels[1].SetActive(false);
         Time.timeScale = 0f;
         AudioListener.pause = true;
-        Menu.ignoreListenerPause = true;
-        Back.ignoreListenerPause = true;
+        Sounds[0].ignoreListenerPause = true;
+        Sounds[1].ignoreListenerPause = true;
         Cursor.lockState = CursorLockMode.None;
     }
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
-        MainGamePanel.SetActive(true);
+        Panels[0].SetActive(false);
+        Panels[1].SetActive(true);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         AudioListener.pause = false;

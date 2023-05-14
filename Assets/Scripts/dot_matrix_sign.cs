@@ -1,52 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class dot_matrix_sign : MonoBehaviour
 {
-    public GameObject DMText1;
-    public GameObject DMText2;
-    public GameObject DMText3;
-    public GameObject DMText4;
-    public GameObject DMText5;
+    public GameObject[] DMText;
 
     private void Start()
     {
-        DMText1.SetActive(true);
+        DMText[0].SetActive(true);
         StartCoroutine(DotMatrixDisplay());
     }
     IEnumerator DotMatrixDisplay()
     {
         while (true)
         {
-            if (DMText1 == true)
+            if (DMText[0] == true)
             {
-                DMText1.SetActive(false);
-                DMText2.SetActive(true);
+                DMText[0].SetActive(false);
+                DMText[1].SetActive(true);
                 yield return new WaitForSeconds(10);
             }
-            if (DMText2 == true)
+            if (DMText[1] == true)
             {
-                DMText2.SetActive(false);
-                DMText3.SetActive(true);
+                DMText[1].SetActive(false);
+                DMText[2].SetActive(true);
                 yield return new WaitForSeconds(10);
             }
-            if (DMText3 == true)
+            if (DMText[2] == true)
             {
-                DMText3.SetActive(false);
-                DMText4.SetActive(true);
+                DMText[2].SetActive(false);
+                DMText[3].SetActive(true);
                 yield return new WaitForSeconds(10);
             }
-            if (DMText4 == true)
+            if (DMText[3] == true)
             {
-                DMText4.SetActive(false);
-                DMText5.SetActive(true);
+                DMText[3].SetActive(false);
+                DMText[4].SetActive(true);
                 yield return new WaitForSeconds(10);
             }
-            if (DMText5 == true)
+            if (DMText[4] == true)
             {
-                DMText5.SetActive(false);
-                DMText1.SetActive(true);
+                DMText[4].SetActive(false);
+                DMText[0].SetActive(true);
                 yield return new WaitForSeconds(10);
             }
         }

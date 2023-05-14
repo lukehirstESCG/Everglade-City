@@ -7,16 +7,15 @@ using UnityEngine.UI;
 public class LoadGame : MonoBehaviour
 {
     [Header("Menus")]
-    public GameObject loadingScreen;
-    public GameObject MainMenu;
+    public GameObject[] loadingPanels;
 
     [Header("Slider")]
     public Slider loadingSlider;
 
     public void LoadScene(string EvergladeCity)
     {
-        MainMenu.SetActive(false);
-        loadingScreen.SetActive(true);
+        loadingPanels[0].SetActive(false);
+        loadingPanels[1].SetActive(true);
 
         StartCoroutine(LoadIntoGame(EvergladeCity));
     }

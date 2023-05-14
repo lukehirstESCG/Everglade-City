@@ -4,89 +4,81 @@ using UnityEngine;
 
 public class ValenciaislandLights : MonoBehaviour
 {
-    public GameObject V;
-    public GameObject A;
-    public GameObject L;
-    public GameObject E;
-    public GameObject N;
-    public GameObject C;
-    public GameObject I;
-    public GameObject A2;
+    public GameObject[] Valencia;
 
     private void Start()
     {
-        V.SetActive(true);
+        Valencia[0].SetActive(true);
         StartCoroutine(LightShow());
     }
     IEnumerator LightShow()
     {
         while (true)
         {
-            if (V == true)
+            if (Valencia[0] == true)
             {
-                V.SetActive(false);
-                A.SetActive(true);
+                Valencia[0].SetActive(false);
+                Valencia[1].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (A == true)
+            if (Valencia[1] == true)
             {
-                A.SetActive(false);
-                L.SetActive(true);
+                Valencia[1].SetActive(false);
+                Valencia[2].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (L == true)
+            if (Valencia[2] == true)
             {
-                L.SetActive(false);
-                E.SetActive(true);
+                Valencia[2].SetActive(false);
+                Valencia[3].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (E == true)
+            if (Valencia[3] == true)
             {
-                E.SetActive(false);
-                N.SetActive(true);
+                Valencia[3].SetActive(false);
+                Valencia[4].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (N == true)
+            if (Valencia[4] == true)
             {
-                N.SetActive(false);
-                C.SetActive(true);
+                Valencia[4].SetActive(false);
+                Valencia[5].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (C == true)
+            if (Valencia[5] == true)
             {
-                C.SetActive(false);
-                I.SetActive(true);
+                Valencia[5].SetActive(false);
+                Valencia[6].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (I == true)
+            if (Valencia[6] == true)
             {
-                I.SetActive(false);
-                A2.SetActive(true);
+                Valencia[6].SetActive(false);
+                Valencia[7].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (A2 == true)
+            if (Valencia[7] == true)
             {
-                V.SetActive(true);
-                A.SetActive(true);
-                L.SetActive(true);
-                E.SetActive(true);
-                N.SetActive(true);
-                C.SetActive(true);
-                I.SetActive(true);
+                Valencia[0].SetActive(true);
+                Valencia[1].SetActive(true);
+                Valencia[2].SetActive(true);
+                Valencia[3].SetActive(true);
+                Valencia[4].SetActive(true);
+                Valencia[5].SetActive(true);
+                Valencia[7].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
-            if (V && A && L && E && N && C && I && A2 == true)
+            if (Valencia[0] && Valencia[1] && Valencia[2] && Valencia[3] && Valencia[4] && Valencia[5] && Valencia[6] && Valencia[7] == true)
             {
-                V.SetActive(false);
-                A.SetActive(false);
-                L.SetActive(false);
-                E.SetActive(false);
-                N.SetActive(false);
-                C.SetActive(false);
-                I.SetActive(false);
-                A2.SetActive(false);
+                Valencia[0].SetActive(false);
+                Valencia[1].SetActive(false);
+                Valencia[2].SetActive(false);
+                Valencia[3].SetActive(false);
+                Valencia[4].SetActive(false);
+                Valencia[5].SetActive(false);
+                Valencia[7].SetActive(false);
                 yield return new WaitForSeconds(1);
-                V.SetActive(true);
+                Valencia[0].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
         }
