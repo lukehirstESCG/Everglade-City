@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    public Transform target;
 
-    [SerializeField] private float offsetX, offsetZ, offsetY;
-    [SerializeField] private float LerpSpeed;
+    public float offsetX, offsetZ, offsetY;
+    public float LerpSpeed;
 
     private void Update()
     {
-        MinimapTravel();;
+        MinimapTravel();
     }
     private void MinimapTravel()
     {

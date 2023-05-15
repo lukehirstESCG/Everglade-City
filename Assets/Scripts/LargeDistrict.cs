@@ -72,7 +72,7 @@ public class LargeDistrict : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Is the player in a new LargeDistrict? If so, display the new name
-        if (other.gameObject.tag == "Player" && other.gameObject.name == "LargeDistrict")
+        if (other.CompareTag(("Player")) && other.gameObject.name == "LargeDistrict")
         {
             StartCoroutine(PrimaryDistrictName());
         }    
@@ -81,7 +81,7 @@ public class LargeDistrict : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Has the player entered a district with a blank name? If so, hide the text.
-        if (other.gameObject.tag != "Player")
+        if (other.CompareTag(("")))
         {
             isOnScreen = false;
             LargeDistrictFade.enabled = false;

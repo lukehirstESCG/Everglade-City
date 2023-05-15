@@ -9,8 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    public AudioMixerGroup musicMixerGroup;
-    public AudioMixerGroup sfxMixerGroup;
+    public AudioMixerGroup[] mixerGroups;
 
     void Awake()
     {
@@ -33,13 +32,13 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
 
             // Set the appropriate mixer group for the sound
-            if (s.isMusic && musicMixerGroup != null)
+            if (s.isMusic && mixerGroups[0] != null)
             {
-                s.source.outputAudioMixerGroup = musicMixerGroup;
+                s.source.outputAudioMixerGroup = mixerGroups[0];
             }
-            else if (s.isSFX && sfxMixerGroup != null)
+            else if (s.isSFX && mixerGroups[1] != null)
             {
-                s.source.outputAudioMixerGroup = sfxMixerGroup;
+                s.source.outputAudioMixerGroup = mixerGroups[1];
             }
         }
     }

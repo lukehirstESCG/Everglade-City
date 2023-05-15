@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float runSpeed;
     public float turnSmoothTime = 0.1f;
     public float gravity = -9f;
+    bool isGrounded;
 
     Vector3 velocity;
 
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {
         {
             // Are we about to move?
-            if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
+            if (Input.GetAxis("Horizontal") == 0f || Input.GetAxis("Vertical") == 0f)
             {
                 state = States.Walk;
             }

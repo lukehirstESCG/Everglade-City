@@ -8,7 +8,7 @@ public class Weather : MonoBehaviour
 
     private int particleRandom;
 
-    private float chanceOfRain = 0.5f;
+    private float chanceOfRain = 0.25f;
     private float RainLength;
     private bool isRaining;
 
@@ -51,7 +51,7 @@ public class Weather : MonoBehaviour
                 particleRandom = Random.Range(0, Rain.Length);
                 Raining(particleRandom);
                 isRaining = true;
-                timer = Random.Range(5f, 20f);
+                timer = Random.Range(5f, 120f);
                 FindObjectOfType<AudioManager>().Play("Rain");
             }
         }

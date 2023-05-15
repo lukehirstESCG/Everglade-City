@@ -4,29 +4,25 @@ using TMPro;
 public class DistrictName : MonoBehaviour
 {
     public string District;
-    public bool DistrictVisible = false;
     public TextMeshProUGUI DistrictText;
 
     private void Start()
     {
         DistrictText.text = "";
-        DistrictVisible = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.CompareTag(("Player")))
         {
             DistrictText.text = District;  
-            DistrictVisible = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag != "Player")
+        if (other.CompareTag(("")))
         {
             DistrictText.text = "";
-            DistrictVisible = false;
         }
     }
 }

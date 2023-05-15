@@ -10,6 +10,7 @@ public class AllCollectibles : MonoBehaviour
 {
     public TextMeshProUGUI FinishText;
 
+    // Makes an array
     public GameObject[] Finish;
     private int CollectiblesFound;
     private int TotalCollectibles;
@@ -29,17 +30,20 @@ public class AllCollectibles : MonoBehaviour
 
     IEnumerator Credits()
     {
+        // Start of coroutine
         Finish[1].SetActive(true);
         Finish[4].SetActive(true);
         AudioListener.pause = true;
         Time.timeScale = 1f;
         yield return new WaitForSeconds(delay);
-
+        
+        // Plays the "Thanks for Playing" image
         Finish[4].SetActive(false);
         Finish[3].SetActive(true);
         yield return new WaitForSeconds(delay);
         Finish[3].SetActive(false);
 
+        // Shows the finished panel.
         Finish[1].SetActive(false);
         Finish[0].SetActive(true);
         Cursor.lockState = CursorLockMode.None;
