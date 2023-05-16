@@ -81,7 +81,7 @@ public class LargeDistrict : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Has the player entered a district with a blank name? If so, hide the text.
-        if (other.CompareTag(("")))
+        if (other.CompareTag((null)))
         {
             isOnScreen = false;
             LargeDistrictFade.enabled = false;
