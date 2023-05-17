@@ -65,6 +65,7 @@ public class ValenciaislandLights : MonoBehaviour
                 Valencia[3].SetActive(true);
                 Valencia[4].SetActive(true);
                 Valencia[5].SetActive(true);
+                Valencia[6].SetActive(true);
                 Valencia[7].SetActive(true);
                 yield return new WaitForSeconds(1);
             }
@@ -76,6 +77,7 @@ public class ValenciaislandLights : MonoBehaviour
                 Valencia[3].SetActive(false);
                 Valencia[4].SetActive(false);
                 Valencia[5].SetActive(false);
+                Valencia[6].SetActive(false);
                 Valencia[7].SetActive(false);
                 yield return new WaitForSeconds(1);
                 Valencia[0].SetActive(true);

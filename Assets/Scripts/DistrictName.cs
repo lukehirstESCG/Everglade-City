@@ -20,7 +20,7 @@ public class DistrictName : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag((null)))
+        if (other.gameObject.tag != "Player")
         {
             DistrictText.text = "";
         }
