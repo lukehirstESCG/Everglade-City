@@ -58,7 +58,6 @@ public class Soundtrack : MonoBehaviour
 
                 isPlayingTrack2 = true;
                 trackName.text = $"{Track[1]}";
-                currentTrack++;
 
                 yield return new WaitForSeconds(183);
 
@@ -73,7 +72,7 @@ public class Soundtrack : MonoBehaviour
 
                 isPlayingTrack3 = true;
                 trackName.text = $"{Track[2]}";
-                currentTrack++;
+
 
                 yield return new WaitForSeconds(204);
 
@@ -115,7 +114,6 @@ public class Soundtrack : MonoBehaviour
                 isPlayingTrack3 = false;
                 isPlayingTrack4 = false;
                 isPlayingTrack5 = false;
-                yield return null;
                 StopCoroutine(PlaySong());
             }
         }
@@ -183,30 +181,35 @@ public class Soundtrack : MonoBehaviour
                 FindObjectOfType<AudioManager>().Stop("Track1");
                 isPlayingTrack1 = false;
                 trackName.text = "";
+                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack2 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track2");
                 isPlayingTrack2 = false;
                 trackName.text = "";
+                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack3 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track3");
                 isPlayingTrack3 = false;
                 trackName.text = "";
+                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack4 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track4");
                 isPlayingTrack4 = false;
                 trackName.text = "";
+                StopCoroutine(PlaySong());
             }
             if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack5 == true)
             {
                 FindObjectOfType<AudioManager>().Stop("Track5");
                 isPlayingTrack5 = false;
                 trackName.text = "";
+                StopCoroutine(PlaySong());
             }
         }
     }
