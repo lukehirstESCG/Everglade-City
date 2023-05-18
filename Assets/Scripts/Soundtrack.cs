@@ -9,7 +9,7 @@ public class Soundtrack : MonoBehaviour
     private bool isPlayingTrack3 = false;
     private bool isPlayingTrack4 = false;
     private bool isPlayingTrack5 = false;
-    private float currentTrack = 0;
+    float currentTrack = 0;
     public string[] Track = { "track1", "track2", "track3", "track4", "track5" };
     public TextMeshProUGUI trackName;
 
@@ -36,13 +36,15 @@ public class Soundtrack : MonoBehaviour
 
     IEnumerator PlaySong()
     {
-        while (currentTrack <= 4)
+        currentTrack = 0;
+        while (currentTrack < 5)
         {
             if (currentTrack == 0)
             {
                 FindObjectOfType<AudioManager>().Play("Track1");
                 isPlayingTrack1 = true;
                 trackName.text = $"{Track[0]}";
+                currentTrack++;
 
                 yield return new WaitForSeconds(179);
 
@@ -56,6 +58,7 @@ public class Soundtrack : MonoBehaviour
 
                 isPlayingTrack2 = true;
                 trackName.text = $"{Track[1]}";
+                currentTrack++;
 
                 yield return new WaitForSeconds(183);
 
@@ -70,6 +73,7 @@ public class Soundtrack : MonoBehaviour
 
                 isPlayingTrack3 = true;
                 trackName.text = $"{Track[2]}";
+                currentTrack++;
 
                 yield return new WaitForSeconds(204);
 
@@ -83,6 +87,7 @@ public class Soundtrack : MonoBehaviour
 
                 isPlayingTrack4 = true;
                 trackName.text = $"{Track[3]}";
+                currentTrack++;
 
                 yield return new WaitForSeconds(171);
 
@@ -96,20 +101,22 @@ public class Soundtrack : MonoBehaviour
 
                 isPlayingTrack5 = true;
                 trackName.text = $"{Track[4]}";
+                currentTrack++;
 
                 yield return new WaitForSeconds(5);
 
                 FindObjectOfType<AudioManager>().Stop("Track5");
                 isPlayingTrack5 = false;
             }
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) || currentTrack > 5)
             {
+                isPlayingTrack1 = false;
+                isPlayingTrack2 = false;
+                isPlayingTrack3 = false;
+                isPlayingTrack4 = false;
+                isPlayingTrack5 = false;
+                yield return null;
                 StopCoroutine(PlaySong());
-                break;
-            }
-            else if (currentTrack == 4)
-            {
-                break;
             }
         }
     }
