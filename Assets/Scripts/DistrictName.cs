@@ -6,8 +6,11 @@ public class DistrictName : MonoBehaviour
     public string District;
     public TextMeshProUGUI DistrictText;
 
+    private bool isOnScreen = false;
+
     private void Start()
     {
+        isOnScreen = false;
         DistrictText.text = "";
     }
 
@@ -15,13 +18,15 @@ public class DistrictName : MonoBehaviour
     {
         if(other.CompareTag(("Player")))
         {
-            DistrictText.text = District;  
+            isOnScreen = true;
+            DistrictText.text = District;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player")
         {
+            isOnScreen = false;
             DistrictText.text = "";
         }
     }

@@ -12,9 +12,9 @@ public class LargeDistrict : MonoBehaviour
 
     private IEnumerator Start()
     {
-        Vector3 PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Vector3 PlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
-        if (GetComponent<Collider>().bounds.Contains(PlayerPosition))
+        if (GetComponent<Collider>().bounds.Contains(PlayerPos))
         {
             LargeDistrictFade.enabled = true;
             MainDistrict.text = LargeDistrictName;
@@ -36,7 +36,7 @@ public class LargeDistrict : MonoBehaviour
     private void OnZPressed()
     {
         // Is the player pressing Z, and is the name NOT on the screen?
-        if(Input.GetKeyDown(KeyCode.Z) && !isOnScreen)
+        if(Input.GetKeyDown(KeyCode.Z) && isOnScreen == false)
         {
             StartCoroutine(PrimaryDistrictName());
         }    
@@ -45,10 +45,10 @@ public class LargeDistrict : MonoBehaviour
     IEnumerator PrimaryDistrictName()
     {
         // Where is the Player currently at?
-        Vector3 PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Vector3 PlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
         // Is the player currently within the district?
-       if (GetComponent<Collider>().bounds.Contains(PlayerPosition))
+       if (GetComponent<Collider>().bounds.Contains(PlayerPos))
         {
             LargeDistrictFade.enabled = true;
 

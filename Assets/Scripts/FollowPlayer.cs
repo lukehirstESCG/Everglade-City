@@ -15,7 +15,7 @@ public class FollowPlayer : MonoBehaviour
     }
     private void MinimapTravel()
     {
-        // This tells the camera where to travel to with the player.
+        // If the player enters a building, it tells the camera to offset itself by the amount given.
         transform.position = Vector3.Lerp(transform.position,
         new Vector3(target.position.x + offsetX, transform.position.y + offsetY, target.position.z + offsetZ), LerpSpeed);
     }

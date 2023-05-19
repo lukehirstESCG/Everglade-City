@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private float runSpeed;
     public float turnSmoothTime = 0.1f;
     public float gravity = -9f;
-    bool isGrounded;
 
     Vector3 velocity;
 

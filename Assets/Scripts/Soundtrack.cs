@@ -30,11 +30,11 @@ public class Soundtrack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            StartCoroutine(PlaySong());
+           StartCoroutine(PlaySong());
         }
     }
 
-    IEnumerator PlaySong()
+    private IEnumerator PlaySong()
     {
         currentTrack = 0;
         while (currentTrack < 5)
@@ -107,14 +107,12 @@ public class Soundtrack : MonoBehaviour
                 FindObjectOfType<AudioManager>().Stop("Track5");
                 isPlayingTrack5 = false;
             }
-            if (Input.GetKeyDown(KeyCode.R) || currentTrack > 5)
+            if (currentTrack > 5)
             {
-                isPlayingTrack1 = false;
-                isPlayingTrack2 = false;
-                isPlayingTrack3 = false;
-                isPlayingTrack4 = false;
-                isPlayingTrack5 = false;
+                FindObjectOfType<AudioManager>().Stop(Track[0]);
+                yield return new WaitForSeconds(2f);
                 StopCoroutine(PlaySong());
+                yield break;
             }
         }
     }

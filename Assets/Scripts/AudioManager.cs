@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
 
     public AudioMixerGroup[] mixerGroups;
 
+    public const string MUSIC_KEY = "MusicVolume";
+    public const string SFX_KEY = "SFXVolume";
+
     void Awake()
     {
         if (instance == null)
@@ -78,4 +81,5 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume * volume;
         }
     }
+
 }

@@ -13427,6 +13427,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3417179917893787640, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 1957259223}
+    - target: {fileID: 3417179917893787640, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 918660841}
+    - target: {fileID: 4941408798129525720, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 1957259223}
+    - target: {fileID: 4941408798129525720, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: volumeText
+      value: 
+      objectReference: {fileID: 1224995419}
+    - target: {fileID: 4941408798129525720, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: sfxMixerGroup
+      value: 
+      objectReference: {fileID: -1845442640075035421, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
     - target: {fileID: 6910430134744735005, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
       propertyPath: m_Name
       value: SliderManager
@@ -13495,6 +13515,18 @@ PrefabInstance:
       propertyPath: volumeText
       value: 
       objectReference: {fileID: 1224995419}
+    - target: {fileID: 8851454317889410167, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: volumeText
+      value: 
+      objectReference: {fileID: 1719541151}
+    - target: {fileID: 8851454317889410167, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 918660841}
+    - target: {fileID: 8851454317889410167, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
+      propertyPath: musicMixerGroup
+      value: 
+      objectReference: {fileID: 8155042976739875156, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a194734916c5d74ca3cfdf7c138093c, type: 3}
