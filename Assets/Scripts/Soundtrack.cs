@@ -9,6 +9,7 @@ public class Soundtrack : MonoBehaviour
     private bool isPlayingTrack3 = false;
     private bool isPlayingTrack4 = false;
     private bool isPlayingTrack5 = false;
+    private Coroutine StartSong;
     float currentTrack = 0;
     public string[] Track = { "track1", "track2", "track3", "track4", "track5" };
     public TextMeshProUGUI trackName;
@@ -30,7 +31,8 @@ public class Soundtrack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-           StartCoroutine(PlaySong());
+          // Unity 5.3 Onwards requires this to work properly.
+          StartSong = StartCoroutine(PlaySong());
         }
     }
 
@@ -174,40 +176,23 @@ public class Soundtrack : MonoBehaviour
     private void StopSong()
     {
         {
-            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack1 == true)
+            if (Input.GetKeyDown(KeyCode.R))
             {
+                // Stops the song from playing (Any of these WILL stop the coroutine.
+                StopCoroutine(StartSong);
                 FindObjectOfType<AudioManager>().Stop("Track1");
-                isPlayingTrack1 = false;
-                trackName.text = "";
-                StopCoroutine(PlaySong());
-            }
-            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack2 == true)
-            {
                 FindObjectOfType<AudioManager>().Stop("Track2");
-                isPlayingTrack2 = false;
-                trackName.text = "";
-                StopCoroutine(PlaySong());
-            }
-            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack3 == true)
-            {
                 FindObjectOfType<AudioManager>().Stop("Track3");
-                isPlayingTrack3 = false;
-                trackName.text = "";
-                StopCoroutine(PlaySong());
-            }
-            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack4 == true)
-            {
                 FindObjectOfType<AudioManager>().Stop("Track4");
-                isPlayingTrack4 = false;
-                trackName.text = "";
-                StopCoroutine(PlaySong());
-            }
-            if (Input.GetKeyDown(KeyCode.R) && isPlayingTrack5 == true)
-            {
                 FindObjectOfType<AudioManager>().Stop("Track5");
+
+                isPlayingTrack1 = false;
+                isPlayingTrack2 = false;
+                isPlayingTrack3 = false;
+                isPlayingTrack4 = false;
                 isPlayingTrack5 = false;
+
                 trackName.text = "";
-                StopCoroutine(PlaySong());
             }
         }
     }

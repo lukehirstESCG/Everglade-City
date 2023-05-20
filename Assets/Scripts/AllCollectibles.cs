@@ -85,4 +85,13 @@ public class AllCollectibles : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void RestartGame()
+    {
+        // Restarts the game.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AudioListener.pause = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
+    }
+
 }

@@ -6,11 +6,9 @@ public class DistrictName : MonoBehaviour
     public string District;
     public TextMeshProUGUI DistrictText;
 
-    private bool isOnScreen = false;
 
     private void Start()
     {
-        isOnScreen = false;
         DistrictText.text = "";
     }
 
@@ -18,7 +16,6 @@ public class DistrictName : MonoBehaviour
     {
         if(other.CompareTag(("Player")))
         {
-            isOnScreen = true;
             DistrictText.text = District;
         }
     }
@@ -26,7 +23,6 @@ public class DistrictName : MonoBehaviour
     {
         if (other.gameObject.tag != "Player")
         {
-            isOnScreen = false;
             DistrictText.text = "";
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 45455946363880885}
   - component: {fileID: 3967291272233601552}
   - component: {fileID: 1218875905354317530}
-  - component: {fileID: 136572977054701280}
+  - component: {fileID: 9062843717597879435}
   m_Layer: 0
   m_Name: green_maple_tree(taller) (143)
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858689296683671311}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10328.193, y: 0.1, z: 15522.4}
-  m_LocalScale: {x: 9, y: 9, z: 9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 11}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1958689669212112454}
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &136572977054701280
+--- !u!64 &9062843717597879435
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,14 +124,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8092150603550421432}
-  m_LocalRotation: {x: -0.0005959238, y: 0.023805382, z: -0.02501822, w: 0.99940336}
-  m_LocalPosition: {x: 0.03, y: 0.01, z: 0.62}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 45455946363880885}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 2.729004, z: -2.867981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4761093182048356096
 MeshFilter:
   m_ObjectHideFlags: 0
