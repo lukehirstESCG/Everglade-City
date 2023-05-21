@@ -29,7 +29,7 @@ public class Soundtrack : MonoBehaviour
 
     private void OnEPressed()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.I))
         {
           // Unity 5.3 Onwards requires this to work properly.
           StartSong = StartCoroutine(PlaySong());
@@ -113,7 +113,7 @@ public class Soundtrack : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().Stop(Track[0]);
                 yield return new WaitForSeconds(2f);
-                StopCoroutine(PlaySong());
+                StopCoroutine(StartSong);
                 yield break;
             }
         }
@@ -121,7 +121,7 @@ public class Soundtrack : MonoBehaviour
 
     private void SkipSong()
     {
-        if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack1 == true)
+        if (Input.GetKeyDown(KeyCode.O) && isPlayingTrack1 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track1");
             isPlayingTrack1 = false;
@@ -131,7 +131,7 @@ public class Soundtrack : MonoBehaviour
             trackName.text = $"{Track[1]}";
             currentTrack = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack2 == true)
+        else if (Input.GetKeyDown(KeyCode.O) && isPlayingTrack2 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track2");
             isPlayingTrack2 = false;
@@ -141,7 +141,7 @@ public class Soundtrack : MonoBehaviour
             trackName.text = $"{Track[2]}";
             currentTrack = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack3 == true)
+        else if (Input.GetKeyDown(KeyCode.O) && isPlayingTrack3 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track3");
             isPlayingTrack3 = false;
@@ -151,7 +151,7 @@ public class Soundtrack : MonoBehaviour
             trackName.text = $"{Track[3]}";
             currentTrack = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack4 == true)
+        else if (Input.GetKeyDown(KeyCode.O) && isPlayingTrack4 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track4");
             isPlayingTrack4 = false;
@@ -161,7 +161,7 @@ public class Soundtrack : MonoBehaviour
             trackName.text = $"{Track[4]}";
             currentTrack = 4;
         }
-        else if (Input.GetKeyDown(KeyCode.T) && isPlayingTrack5 == true)
+        else if (Input.GetKeyDown(KeyCode.O) && isPlayingTrack5 == true)
         {
             FindObjectOfType<AudioManager>().Stop("Track5");
             isPlayingTrack4 = false;
@@ -176,9 +176,9 @@ public class Soundtrack : MonoBehaviour
     private void StopSong()
     {
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                // Stops the song from playing (Any of these WILL stop the coroutine.
+                // Stops the song from playing (Any of these WILL stop the coroutine).
                 StopCoroutine(StartSong);
                 FindObjectOfType<AudioManager>().Stop("Track1");
                 FindObjectOfType<AudioManager>().Stop("Track2");
