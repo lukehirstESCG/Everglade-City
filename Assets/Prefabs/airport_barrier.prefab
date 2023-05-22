@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6355265179426371628}
   - component: {fileID: 1688725229479183391}
   - component: {fileID: 367980754368011502}
-  - component: {fileID: 3402677451841862288}
+  - component: {fileID: 5581699435634464729}
   m_Layer: 0
   m_Name: Cube.005
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3402677451841862288
+--- !u!64 &5581699435634464729
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,9 +95,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 2212009239438826721, guid: d89a092d043ee4c4fbdeff48346ea263, type: 3}
+  m_Mesh: {fileID: -267161780846197659, guid: d89a092d043ee4c4fbdeff48346ea263, type: 3}
 --- !u!1 &1673843598334710968
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3252575178395587940}
   - component: {fileID: 5345910293371288205}
   - component: {fileID: 1541108980386722448}
-  - component: {fileID: 7311327189255042222}
+  - component: {fileID: 472992676691465234}
   m_Layer: 0
   m_Name: Cube.002
   m_TagString: Untagged
@@ -182,7 +182,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7311327189255042222
+--- !u!64 &472992676691465234
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,9 +193,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1550514412580984892, guid: d89a092d043ee4c4fbdeff48346ea263, type: 3}
+  m_Mesh: {fileID: -267161780846197659, guid: d89a092d043ee4c4fbdeff48346ea263, type: 3}
 --- !u!1 &8013976313311438860
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 965182559224934077}
   - component: {fileID: 1603646673607455350}
   - component: {fileID: 1667231214576024611}
-  - component: {fileID: 1521678587436469168}
+  - component: {fileID: 2308708701764536866}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
@@ -314,7 +314,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1521678587436469168
+--- !u!64 &2308708701764536866
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,6 +325,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -8678823145569952518, guid: d89a092d043ee4c4fbdeff48346ea263, type: 3}
+  m_Mesh: {fileID: -267161780846197659, guid: d89a092d043ee4c4fbdeff48346ea263, type: 3}

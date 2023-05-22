@@ -57,4 +57,11 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("FrontEnd");
         AudioListener.pause = true;
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AudioListener.pause = false;
+        Time.timeScale = 1f;
+    }
 }
