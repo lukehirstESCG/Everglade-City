@@ -127,5 +127,5 @@ MonoBehaviour:
     isSFX: 0
     source: {fileID: 0}
   mixerGroups:
-  - {fileID: -1845442640075035421, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
   - {fileID: 8155042976739875156, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
+  - {fileID: -1845442640075035421, guid: da65e5e0bb4f56d45a4dc3bcd3452ed1, type: 2}
