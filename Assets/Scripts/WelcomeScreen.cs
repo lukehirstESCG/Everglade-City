@@ -17,5 +17,6 @@ public class WelcomeScreen : MonoBehaviour
         Welcome[0].SetActive(false);
         Welcome[1].SetActive(true);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
