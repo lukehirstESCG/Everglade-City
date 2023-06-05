@@ -9,7 +9,6 @@ public class Weather : MonoBehaviour
     private int particleRandom;
 
     private float chanceOfRain = 0.25f;
-    private float RainLength;
     private bool isRaining;
 
     private float dice;
