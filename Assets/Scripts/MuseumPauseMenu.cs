@@ -49,6 +49,7 @@ public class MuseumPauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         SceneManager.LoadScene("FrontEnd");
-        AudioListener.pause = true;
+        AudioListener.pause = false;
+        FindObjectOfType<AudioManager>().Stop("Rain");
     }
 }

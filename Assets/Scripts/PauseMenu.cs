@@ -55,7 +55,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("FrontEnd");
-        AudioListener.pause = true;
+        AudioListener.pause = false;
+        FindObjectOfType<AudioManager>().Stop("Rain");
     }
 
     public void RestartGame()
